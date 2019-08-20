@@ -1,0 +1,38 @@
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin btn-style {
+  text-align: center;
+  vertical-align: middle;
+  background-color: $sedona-blue;
+}
+
+@mixin input-style {
+  background-color: rgb(242, 242, 242);
+  border: none;
+  text-align: left;
+}
+
+@mixin font-bold-white {
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 40px;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color: $sedona-white;
+}
+
+@mixin font-general {
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
