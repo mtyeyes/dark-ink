@@ -11,7 +11,7 @@ var imagemin = require("gulp-imagemin");
 var htmlmin = require("gulp-htmlmin");
 var del = require("del");
 var concat = require("gulp-concat");
-var uglify = require("gulp-uglify");
+var terser = require("gulp-terser");
 var webp = require('gulp-webp');
 
 gulp.task("html", function () {
@@ -73,8 +73,8 @@ gulp.task("clean", function (){
 
 gulp.task("script", function() {
   return gulp.src(["source/js/*.js"])
-    .pipe(concat("index.js"))
-    .pipe(uglify())
+    .pipe(concat("script.js"))
+    .pipe(terser())
     .pipe(gulp.dest("build/js/"));
 });
 

@@ -8,7 +8,7 @@
 *.psd
 *.sublime*
 build/
-source/overlays/
+overlays/
 node_modules/
 npm-debug.*
 Thumbs.db

@@ -1,0 +1,208 @@
+.introduction {
+  background-image: url("../img/introduction-bg-person.png"), url("../img/introduction-bg.jpg");
+  background-repeat: no-repeat, repeat;
+  background-position: 70% bottom, top left;
+  background-size: 258px, auto;
+}
+
+.introduction__container {
+  padding: 30px 0 60px;
+  width: $mobile-width;
+  margin: 0 auto;
+}
+
+.introduction__wrap--middle {
+  margin: 15px auto 40px;
+  width: 280px;
+  padding-left: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.introduction__heading {
+  position: relative;
+  width: 290px;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 70px;
+  font-weight: 700;
+  font-family: "montserrat", sans-serif;
+  color: $red;
+}
+
+.introduction__heading--rotated {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: block;
+  font-size: 30px;
+  color: $white;
+  transform: rotate(-90deg);
+  line-height: 1;
+}
+
+.introduction__under-heading {
+  margin: 2px 0 0 5px;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "montserrat", sans-serif;
+  letter-spacing: 0.6px;
+  color: $white;
+}
+
+.introduction__desktop-text {
+  display: none;
+  color: $dim;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: "lato", "roboto", sans-serif;
+}
+
+.introduction__btn {
+  margin: 45px 0 0 70px;
+}
+
+.introduction__wrap--bottom {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "loto", "roboto", sans-serif;
+}
+
+.introduction__text-accent {
+  margin: 0 0 6px;
+  text-align: center;
+  color: $red;
+}
+
+.introduction__text-white {
+  color: $white;
+}
+
+.introduction__phone-link {
+  text-decoration: none;
+  color: $white;
+}
+
+.introduction__phone-link:focus,
+.introduction__phone-link:hover {
+  color: $dim;
+  outline: none;
+  border-bottom: 2px solid $red;
+}
+
+@media (min-width: $tablet-width) {
+  .introduction {
+    background-position: 75% bottom, top left;
+    background-size: 285px, auto;
+  }
+
+  .introduction__container {
+    width: $tablet-width;
+  }
+
+  .introduction__wrap--middle {
+    margin: 50px 0 40px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .introduction__under-heading {
+    margin-left: 0;
+  }
+
+  .introduction__btn {
+    margin: 45px 0 0 0;
+    padding: 16px 30px 14px;
+  }
+}
+
+@media (min-width: $pre-desktop-width) {
+  .introduction {
+    background-position: 74% bottom, top left;
+    background-size: 360px, auto;
+  }
+
+  .introduction__container {
+    width: $pre-desktop-width;
+    padding: 30px 0 55px;
+  }
+
+  .introduction__wrap--middle {
+    margin: 65px 0 40px 10px;
+    width: 450px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .introduction__desktop-text {
+    margin-top: 30px;
+    display: block;
+  }
+
+  .introduction__btn {
+    margin-top: 20px;
+  }
+
+  .introduction__wrap--bottom {
+    margin: 65px auto 0;
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .introduction {
+    background-position: 74% bottom, top left;
+    background-size: 420px, auto;
+  }
+
+  .introduction__container {
+    width: $desktop-width;
+    padding: 40px 0 35px;
+  }
+
+  .introduction__heading {
+    width: auto;
+    font-size: 150px;
+  }
+
+  .introduction__heading--rotated {
+    position: absolute;
+    bottom: 55px;
+    right: 40px;
+    font-size: 60px;
+  }
+
+  .introduction__under-heading {
+    margin: 0 0 0 15px;
+    font-size: 60px;
+    line-height: 0.8;
+    font-family: "montserrat", sans-serif;
+    letter-spacing: 1.2px;
+    color: $white;
+  }
+
+  .introduction__desktop-text {
+    margin: 40px 0 18px 15px;
+    letter-spacing: -0.1px;
+  }
+
+  .introduction__btn {
+    margin-left: 14px;
+  }
+
+  .introduction__wrap--middle {
+    margin: 65px 0 40px 0;
+    padding-left: 0;
+    width: 590px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .introduction__wrap--bottom {
+    margin: 80px auto 0;
+  }
+}

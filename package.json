@@ -39,5 +39,9 @@
     "source/js/**/*.js",
     "source/img/**/*.svg",
     "source/sass/**/*.{sass,scss}"
-  ]
+  ],
+  "dependencies": {
+    "gulp-terser": "^1.2.0",
+    "loaderjs": "^1.0.0"
+  }
 }

@@ -1,0 +1,39 @@
+.btn {
+  position: relative;
+  padding: 16px 14px 14px;
+  font-size: 14px;
+  font-family: "montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: $white;
+  background-color: transparent;
+  border: none;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 65%;
+  background-color: $red;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.btn:hover,
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover::before,
+.btn:focus::before {
+  width: 100%;
+  transition: 0.3s;
+}
+
+.btn:active::before {
+  background-color: $dim;
+  transition: 0s;
+}
