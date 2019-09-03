@@ -1,12 +1,13 @@
 .introduction {
-  background-image: url("../img/introduction-bg-person.png"), url("../img/introduction-bg.jpg");
+  background-image: url("../img/introduction-bg-person.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));
   background-repeat: no-repeat, repeat;
   background-position: 70% bottom, top left;
-  background-size: 258px, auto;
+  background-size: 258px;
+  animation: background-slide 8s;
 }
 
 .introduction__container {
-  padding: 30px 0 60px;
+  padding: 85px 0 60px;
   width: $mobile-width;
   margin: 0 auto;
 }
@@ -26,7 +27,7 @@
   text-transform: uppercase;
   font-size: 70px;
   font-weight: 700;
-  font-family: "montserrat", sans-serif;
+  font-family: $secondary-font;
   color: $red;
 }
 
@@ -46,7 +47,7 @@
   text-transform: uppercase;
   font-size: 30px;
   font-weight: 700;
-  font-family: "montserrat", sans-serif;
+  font-family: $secondary-font;
   letter-spacing: 0.6px;
   color: $white;
 }
@@ -57,7 +58,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
-  font-family: "lato", "roboto", sans-serif;
+  font-family: $main-font;
 }
 
 .introduction__btn {
@@ -92,18 +93,39 @@
   border-bottom: 2px solid $red;
 }
 
+@media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+  .introduction {
+    background-image: url("../img/introduction-bg-person@2x.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));;
+  }
+}
+
+@media (max-width: 767px) {
+  @keyframes background-slide {
+    from {
+      background-position: 80% -15%, top left;
+      background-size: 280px, auto;
+    }
+
+    to {
+      background-position: 70% bottom, top left;
+      background-size: 258px, auto;
+    }
+  }
+}
+
 @media (min-width: $tablet-width) {
   .introduction {
-    background-position: 75% bottom, top left;
+    background-position: 74% bottom, top left;
     background-size: 285px, auto;
   }
 
   .introduction__container {
-    width: $tablet-width;
+    width: 750px;
   }
 
   .introduction__wrap--middle {
-    margin: 50px 0 40px 20px;
+    margin: 50px 0 40px 15px;
+    padding: 0;
     position: relative;
     z-index: 1;
   }
@@ -116,21 +138,39 @@
     margin: 45px 0 0 0;
     padding: 16px 30px 14px;
   }
+
+  .introduction__wrap--bottom {
+    margin-left: -30px;
+  }
+
+  @media (max-width: 991px) {
+    @keyframes background-slide {
+      from {
+        background-position: 81% -8%, top left;
+        background-size: 305px, auto;
+      }
+
+      to {
+        background-position: 74% bottom, top left;
+        background-size: 285px, auto;
+      }
+    }
+  }
 }
 
 @media (min-width: $pre-desktop-width) {
   .introduction {
-    background-position: 74% bottom, top left;
-    background-size: 360px, auto;
+    background-position: 73% bottom, top left;
+    background-size: 355px, auto;
   }
 
   .introduction__container {
-    width: $pre-desktop-width;
+    width: 974px;
     padding: 30px 0 55px;
   }
 
   .introduction__wrap--middle {
-    margin: 65px 0 40px 10px;
+    margin: 65px 0 40px 22px;
     width: 450px;
     position: relative;
     z-index: 1;
@@ -142,14 +182,28 @@
   }
 
   .introduction__btn {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
   }
 
   .introduction__wrap--bottom {
-    margin: 65px auto 0;
+    margin: 65px auto 0 auto;
     width: 600px;
     display: flex;
     justify-content: space-around;
+  }
+
+  @media (max-width: 1199px) {
+    @keyframes background-slide {
+      from {
+        background-position: 80% -9%, top left;
+        background-size: 370px, auto;
+      }
+
+      to {
+        background-position: 73% bottom, top left;
+        background-size: 355px, auto;
+      }
+    }
   }
 }
 
@@ -160,7 +214,7 @@
   }
 
   .introduction__container {
-    width: $desktop-width;
+    width: 1180px;
     padding: 40px 0 35px;
   }
 
@@ -180,7 +234,7 @@
     margin: 0 0 0 15px;
     font-size: 60px;
     line-height: 0.8;
-    font-family: "montserrat", sans-serif;
+    font-family: $secondary-font;
     letter-spacing: 1.2px;
     color: $white;
   }
@@ -191,11 +245,11 @@
   }
 
   .introduction__btn {
-    margin-left: 14px;
+    margin: 20px 14px 0 16px;
   }
 
   .introduction__wrap--middle {
-    margin: 65px 0 40px 0;
+    margin: 65px 0 40px -10px;
     padding-left: 0;
     width: 590px;
     position: relative;
@@ -204,5 +258,17 @@
 
   .introduction__wrap--bottom {
     margin: 80px auto 0;
+  }
+
+  @keyframes background-slide {
+    from {
+      background-position: 80% -9%, top left;
+      background-size: 430px, auto;
+    }
+
+    to {
+      background-position: 74% bottom, top left;
+      background-size: 420px, auto;
+    }
   }
 }

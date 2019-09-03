@@ -1,8 +1,11 @@
 .header {
-  width: 992px;
-  position: relative;
+  width: 100%;
+  position: fixed;
   padding-bottom: 15px;
   background-color: #202020;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .header__logo {
@@ -11,21 +14,43 @@
   height: auto;
   padding-top: 18px;
   margin-left: 58px;
+  z-index: 1;
 }
 
 @media (min-width: $pre-desktop-width) {
   .header {
+    position: absolute;
+    top: 0;
+    left: 0;
     padding-bottom: 0;
+    transition: 500ms;
+  }
+
+  .header__wrapper {
+    position: relative;
+    width: 974px;
+    margin: 0 auto;
   }
 
   .header__logo {
-    position: fixed;
-    width: 181px;
+    position: absolute;
+    margin-left: 0;
     top: 5px;
-    left: -42px;
+    left: 5px;
+    width: 181px;
+  }
+
+  .header--sticky {
+    position: fixed;
+    height: 30px;
+    padding-bottom: 35px;
+    z-index: 10;
+    transition: 500ms;
   }
 }
 
-
-// @media (min-width: $desktop-width) {
-// }
+@media (min-width: $desktop-width) {
+  .header__wrapper {
+    width: 1180px;
+  }
+}

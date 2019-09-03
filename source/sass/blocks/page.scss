@@ -1,0 +1,42 @@
+.page {
+  position: relative;
+  background-image: url("../img/main-bg.jpg");
+}
+
+@media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+  .page {
+    background-image: url("../img/main-bg@2x.jpg");
+  }
+}
+
+@media (min-width: $pre-desktop-width) {
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(50% - 466px);
+    width: 1px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: calc(50% - 65px);
+    width: 1px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .page::before {
+    left: calc(50% - 585px);
+  }
+
+  .page::after {
+    right: calc(50% - 85px);
+  }
+}

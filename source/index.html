@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Dark Ink</title>
+    <meta name="Description" content="Tattoo salon numerously recognized as best salon in Los Angeles">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <link href="css/style.css" rel="stylesheet">
@@ -11,48 +12,50 @@
   </head>
   <body class="page">
     <header class="header">
-      <a>
-        <pciture>
-          <img class="header__logo" src="img/header-logo.png" srcset="img/header-logo@2x.png 2x" width="181" height="25" alt="Dark ink">
-        </pciture>
-      </a>
-      <button class="site-nav__menu-toggle no-js--remove">
-        <span class="visually-hidden">Menu</span><div class="site-nav__menu-icon"></div>
-      </button>
-      <ul class="site-nav__list no-js--show">
-        <li class="site-nav__item site-nav__item--active">
-          <a href="" class="site-nav__link">Home</a>
-        </li>
-        <li class="site-nav__item">
-          <a href="" class="site-nav__link">About us</a>
-        </li>
-        <li class="site-nav__item">
-          <a href="" class="site-nav__link">Services</a>
-        </li>
-        <li class="site-nav__item">
-          <a href="" class="site-nav__link">Gallery</a>
-        </li>
-        <li class="site-nav__item">
-          <a href="" class="site-nav__link">Blog</a>
-        </li>
-        <li class="site-nav__item--contains-sub-menu">
-          <button class="site-nav__sub-menu-toggle">Pages</button>
-          <ul class="site-nav__sub-menu no-js--show">
-            <li class="site-nav__item">
-              <a href="" class="site-nav__link">Appointment</a>
-            </li>
-            <li class="site-nav__item">
-              <a href="" class="site-nav__link">Privacy policy</a>
-            </li>
-            <li class="site-nav__item">
-              <a href="" class="site-nav__link">Pricing</a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-nav__item">
-          <a href="" class="site-nav__link">Contacts</a>
-        </li>
-      </ul>
+      <div class="header__wrapper">
+        <a>
+          <pciture>
+            <img class="header__logo" src="img/header-logo.png" srcset="img/header-logo@2x.png 2x" width="181" height="25" alt="Dark ink">
+          </pciture>
+        </a>
+        <button class="site-nav__menu-toggle no-js--remove">
+          <span class="visually-hidden">Menu</span><div class="site-nav__menu-icon"></div>
+        </button>
+        <ul class="site-nav__list no-js--show">
+          <li class="site-nav__item site-nav__item--active">
+            <a href="" class="site-nav__link">Home</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="" class="site-nav__link">About us</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="" class="site-nav__link">Services</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="" class="site-nav__link">Gallery</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="" class="site-nav__link">Blog</a>
+          </li>
+          <li class="site-nav__item--contains-sub-menu">
+            <button class="site-nav__sub-menu-toggle">Pages</button>
+            <ul class="site-nav__sub-menu no-js--show">
+              <li class="site-nav__item">
+                <a href="" class="site-nav__link">Appointment</a>
+              </li>
+              <li class="site-nav__item">
+                <a href="" class="site-nav__link">Privacy policy</a>
+              </li>
+              <li class="site-nav__item">
+                <a href="" class="site-nav__link">Pricing</a>
+              </li>
+            </ul>
+          </li>
+          <li class="site-nav__item">
+            <a href="" class="site-nav__link">Contacts</a>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <main class="page__main">
@@ -70,269 +73,27 @@
           </div>
         </div>
       </section>
+      <section class="about">
+        <div class="about__pictures-container">
+          <picture>
+            <source type="image/webp" srcset="img/about-photo-1.webp 1x, img/about-photo-1@2x.webp 2x">
+            <img class="about__img about__img--left" src="img/about-photo-1.jpg" srcset="img/about-photo-1@2x.jpg 2x" width="270" height="389" alt="Tattoo example">
+          </picture>
+          <picture>
+            <source type="image/webp" srcset="img/about-photo-2.webp 1x, img/about-photo-2@2x.webp 2x">
+            <img class="about__img about__img--right" src="img/about-photo-2.jpg" srcset="img/about-photo-2@2x.jpg 2x" width="270" height="389" alt="Tattoo example">
+          </picture>
+          <a href="" class="about__link">Our gallery</a>
+        </div>
+        <div class="about__text-container">
+          <h2 class="about__heading">About<span class="visually-hidden"> </span>salon</h2>
+          <p class="about__text about__text--emphasis">We have been numerously recognized as #1 tattoo salon in Los Angeles. We aim to deliver the best tattooing services.</p>
+          <p class="about__text fade-in-up">Our staff consistently upgrades their ability and knowledge through training and seminars to ensure your tattoo or piercing is performed using the latest industry standards.</p>
+        </div>
+      </section>
     </main>
-  <script>( function() {
-    var overlay = document.createElement('img');
-    var overlayInformation = document.createElement('div');
-    var overlayHelp = document.createElement('div');
-    var overlayInformationTimeout;
-    var overlaySrc;
-    var pressedKeys = [];
-    var blockedKeys = [ 17, 33, 34, 37, 38, 39, 40, 46, 191 ];
-    var controls = [
-      ctrlRight = {
-        check : function() { return (pressedKeys.indexOf(39) !== -1) && (pressedKeys.indexOf(17) !== -1); },
-        result : function() { changeCoordinates ('horizontal', 10); }
-      },
-      right = {
-        check : function() { return (pressedKeys.indexOf(39) !== -1); },
-        result : function() { changeCoordinates ('horizontal', 1); }
-      },
-      ctrlLeft = {
-        check : function() { return (pressedKeys.indexOf(37) !== -1) && (pressedKeys.indexOf(17) !== -1); },
-        result : function() { changeCoordinates ('horizontal', -10); }
-      },
-      left = {
-        check : function() { return (pressedKeys.indexOf(37) !== -1); },
-        result : function() { changeCoordinates ('horizontal', -1); }
-      },
-      ctrlUp = {
-        check : function() { return (pressedKeys.indexOf(38) !== -1) && (pressedKeys.indexOf(17) !== -1); },
-        result : function() { changeCoordinates ('vertical', -10); }
-      },
-      up = {
-        check : function() { return (pressedKeys.indexOf(38) !== -1); },
-        result : function() { changeCoordinates ('vertical', -1); }
-      },
-      ctrlDown = {
-        check : function() { return (pressedKeys.indexOf(40) !== -1) && (pressedKeys.indexOf(17) !== -1); },
-        result : function() { changeCoordinates ('vertical', 10); }
-      },
-      down = {
-        check : function() { return (pressedKeys.indexOf(40) !== -1); },
-        result : function() { changeCoordinates ('vertical', 1); }
-      },
-      comma = {
-        check : function() { return (pressedKeys.indexOf(188) !== -1); },
-        result : function() { changeOpacity (-1); }
-      },
-      period = {
-        check : function() { return (pressedKeys.indexOf(190) !== -1); },
-        result : function() { changeOpacity (1); }
-      },
-      pageUp = {
-        check : function() { return (pressedKeys.indexOf(33) !== -1); },
-        result : function() { changeOverlaySrc ('previous'); }
-      },
-      pageDown = {
-        check : function() { return (pressedKeys.indexOf(34) !== -1); },
-        result : function() { changeOverlaySrc ('next'); }
-      },
-      home = {
-        check : function() { return (pressedKeys.indexOf(36) !== -1); },
-        result : function() { resetCoordinates (); }
-      },
-      backquote = {
-        check : function() { return (pressedKeys.indexOf(192) !== -1); },
-        result : function() { toggleDisplay(); }
-      },
-      questionMark = {
-        check : function() { return (pressedKeys.indexOf(191) !== -1); },
-        result : function() { toggleHelp(); }
-      },
-      del = {
-        check : function() { return (pressedKeys.indexOf(46) !== -1); },
-        result : function() { clearLocalStorage(); }
-      }
-    ];
-    var styleList = {
-      'overlay' : {
-        'position' : 'absolute',
-        'z-index' : '9999'
-      },
-      'overlayInformation' : {
-        'display' : 'none',
-        'justify-content' : 'center',
-        'background-color' : '#eeeeee',
-        'border-radius' : '25px',
-        'position' : 'fixed',
-        'top' : '48%',
-        'left' : '50%',
-        'margin-left' : '-160px',
-        'width' : '320px',
-        'fontSize' : '25px',
-        'z-index' : '9999'
-      },
-      'overlayHelp' : {
-        'display' : 'none',
-        'justify-content' : 'center',
-        'background-color' : '#eeeeee',
-        'border-radius' : '25px',
-        'position' : 'fixed',
-        'top' : '20%',
-        'left' : '50%',
-        'margin-left' : '-275px',
-        'width' : '550px',
-        'font-size' : '25px',
-        'z-index' : '9999',
-        'text-align': 'center'
-      }
-    };
 
-    function styleElements(list) {
-      for (var element in list) {
-        var stylesToApply = ''
-        for (var property in list[element]) {
-          stylesToApply = stylesToApply + property + ':' + list[element][property] + ';';
-        }
-        eval(element).style.cssText = stylesToApply;
-      }
-    };
-
-    ( function () {
-      styleElements (styleList);
-      if (localStorage.getItem('overlaydisplay')) {
-        overlay.style.display = localStorage.getItem('overlaydisplay');
-      } else {
-        overlay.style.display = 'block';
-      }
-      if (localStorage.getItem('overlaynumber')) {
-        overlay.src = './overlays/overlay' + (localStorage.getItem('overlaynumber'));
-        overlaySrc = localStorage.getItem('overlaynumber');
-      } else {
-        overlay.src = './overlays/overlay0';
-        overlaySrc = 0;
-      };
-      if (localStorage.getItem('vertical')) {
-        overlay.style.top = localStorage.getItem('vertical');
-      } else {
-        overlay.style.top = '0';
-      };
-      if (localStorage.getItem('horizontal')) {
-        overlay.style.left = localStorage.getItem('horizontal');
-      } else {
-        overlay.style.left = '0';
-      };
-      if (localStorage.getItem('opacity')) {
-        overlay.style.opacity = localStorage.getItem('opacity');
-      } else {
-        overlay.style.opacity = '0.5';
-      };
-      overlay.style.width = '"' + overlay.naturalWidth + 'px' + '"';
-      overlay.style.height = '"' + overlay.naturalHeight + 'px' + '"';
-      overlayHelp.innerHTML = '<br>Arrows – Move overlay</br><br>Ctrl + arrows – Wide steps</br><br>PageUp/PageDown – Previous/Next overlay</br><br>Comma/Period – Change overlay opacity</br><br>Home – Reset overlay position</br><br>Backquote – Show/Hide overlay</br><br>Delete – Clear local storage</br>';
-      document.body.insertBefore(overlay, null);
-      document.body.insertBefore(overlayInformation, null);
-      document.body.insertBefore(overlayHelp, null);
-    }) ();
-
-    function showOverlayInformation() {
-      clearTimeout(overlayInformationTimeout);
-      overlayInformation.style.display = 'flex';
-      overlayInformation.innerHTML = '<br>Horizontal offset: ' + overlay.style.left + '</br><br>Vertical offset: ' + overlay.style.top + '</br><br>Overlay opacity: ' + ((overlay.style.opacity * 100) +'%') + '</br><br>Overlay number: ' + overlaySrc +'</br>';
-      overlayInformationTimeout = setTimeout (function () {
-        overlayInformation.style.display = 'none';
-      }, 1000);
-    };
-
-    function changeCoordinates(axis, step) {
-      if (axis === 'vertical') {
-        overlay.style.top = +overlay.style.top.slice(0, -2) + parseInt(step, 10) + 'px';
-        localStorage.setItem('vertical', overlay.style.top);
-      } else {
-        overlay.style.left = +overlay.style.left.slice(0, -2) + parseInt(step, 10) + 'px';
-        localStorage.setItem('horizontal', overlay.style.left);
-      }
-      showOverlayInformation();
-    };
-
-    function resetCoordinates() {
-      overlay.style.top = 0;
-      overlay.style.left = 0;
-      localStorage.setItem('vertical', overlay.style.top);
-      localStorage.setItem('horizontal', overlay.style.left);
-      showOverlayInformation();
-    };
-
-    function changeOpacity(change) {
-      overlay.style.opacity = ((overlay.style.opacity * 10) + change) / 10;
-      if (overlay.style.opacity < 0) {
-        overlay.style.opacity = 0;
-      } else if (overlay.style.opacity > 1) {
-        overlay.style.opacity = 1;
-      }
-      localStorage.setItem('opacity', overlay.style.opacity);
-      showOverlayInformation();
-    };
-
-    function changeOverlaySrc(change) {
-      if (change === 'next') {
-        overlay.src = './overlays/overlay' + (++overlaySrc);
-      } else {
-        if (overlaySrc > 0) {
-          overlay.src = './overlays/overlay' + (--overlaySrc);
-        }
-      }
-      localStorage.setItem('overlaynumber', overlaySrc);
-      showOverlayInformation();
-    };
-
-    function toggleDisplay() {
-      if (overlay.style.display === 'block') {
-        overlay.style.display = 'none';
-        localStorage.setItem('overlaydisplay', 'none');
-      } else {
-        overlay.style.display = 'block';
-        localStorage.setItem('overlaydisplay', 'block');
-      }
-    };
-
-    function toggleHelp() {
-      if (overlayHelp.style.display === 'none') {
-        overlayHelp.style.display = 'flex';
-      } else { overlayHelp.style.display = 'none' }
-    };
-
-    function removeKey(unpressedKey) {
-      for (var i = 0; i < pressedKeys.length; i++) {
-        if (pressedKeys[i] === unpressedKey) {
-          pressedKeys.splice(i, 1);
-        }
-      }
-    };
-
-    function addKey(pressedKey) {
-      if (pressedKeys.indexOf(event.keyCode) === -1) {
-        pressedKeys.push(pressedKey);
-      }
-    };
-
-    function checkControls() {
-      for (var i = 0; i < controls.length; i++) {
-        if (controls[i].check()) {
-          controls[i].result();
-          break
-        }
-      }
-    };
-
-    function clearLocalStorage () {
-      localStorage.clear();
-    };
-
-    document.addEventListener('keydown', function(event) {
-      if (blockedKeys.indexOf(event.keyCode) !== -1) {
-        event.preventDefault ? event.preventDefault() : (event.returnValue = false);
-      };
-      addKey(event.keyCode);
-      checkControls();
-    });
-
-    document.addEventListener('keyup', function(event) {
-      removeKey(event.keyCode);
-    });
-  })();
-  </script>
+  <script>!function(){var overlay=document.createElement("img"),overlayInformation=document.createElement("div"),overlayHelp=document.createElement("div"),overlayInformationTimeout,overlaySrc,pressedKeys=[],blockedKeys=[17,33,34,36,37,38,39,40,46],keyCodeToCode={17:"ControlLeft",33:"PageUp",34:"PageDown",36:"Home",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown",46:"Delete",188:"Comma",190:"Period",191:"Slash",192:"Backquote"},controls=[{check:function(){return-1!==pressedKeys.indexOf("ArrowRight")&&-1!==pressedKeys.indexOf("ControlLeft")},result:function(){changeCoordinates("horizontal",10)}},{check:function(){return-1!==pressedKeys.indexOf("ArrowRight")},result:function(){changeCoordinates("horizontal",1)}},{check:function(){return-1!==pressedKeys.indexOf("ArrowLeft")&&-1!==pressedKeys.indexOf("ControlLeft")},result:function(){changeCoordinates("horizontal",-10)}},{check:function(){return-1!==pressedKeys.indexOf("ArrowLeft")},result:function(){changeCoordinates("horizontal",-1)}},{check:function(){return-1!==pressedKeys.indexOf("ArrowUp")&&-1!==pressedKeys.indexOf("ControlLeft")},result:function(){changeCoordinates("vertical",-10)}},{check:function(){return-1!==pressedKeys.indexOf("ArrowUp")},result:function(){changeCoordinates("vertical",-1)}},{check:function(){return-1!==pressedKeys.indexOf("ArrowDown")&&-1!==pressedKeys.indexOf("ControlLeft")},result:function(){changeCoordinates("vertical",10)}},{check:function(){return-1!==pressedKeys.indexOf("ArrowDown")},result:function(){changeCoordinates("vertical",1)}},{check:function(){return-1!==pressedKeys.indexOf("Comma")},result:function(){changeOpacity(-1)}},{check:function(){return-1!==pressedKeys.indexOf("Period")},result:function(){changeOpacity(1)}},{check:function(){return-1!==pressedKeys.indexOf("PageUp")},result:function(){changeOverlaySrc("previous")}},{check:function(){return-1!==pressedKeys.indexOf("PageDown")},result:function(){changeOverlaySrc("next")}},{check:function(){return-1!==pressedKeys.indexOf("Home")},result:function(){resetCoordinates()}},{check:function(){return-1!==pressedKeys.indexOf("Backquote")},result:function(){toggleDisplay()}},{check:function(){return-1!==pressedKeys.indexOf("Slash")},result:function(){toggleHelp()}},{check:function(){return-1!==pressedKeys.indexOf("Delete")},result:function(){clearLocalStorage()}}],styleList={overlay:{position:"absolute","z-index":"9999"},overlayInformation:{display:"none","justify-content":"center","background-color":"#eeeeee","border-radius":"25px",position:"fixed",top:"48%",left:"50%","margin-left":"-160px",width:"320px",fontSize:"25px","z-index":"9999"},overlayHelp:{display:"none","justify-content":"center","background-color":"#eeeeee","border-radius":"25px",position:"fixed",top:"20%",left:"50%","margin-left":"-275px",width:"550px","font-size":"25px","z-index":"9999","text-align":"center"}};function styleElements(list){for(var element in list){var stylesToApply="";for(var property in list[element])stylesToApply=stylesToApply+property+":"+list[element][property]+";";eval(element).style.cssText=stylesToApply}}function showOverlayInformation(){clearTimeout(overlayInformationTimeout),overlayInformation.style.display="flex",overlayInformation.innerHTML="<br>Horizontal offset: "+overlay.style.left+"</br><br>Vertical offset: "+overlay.style.top+"</br><br>Overlay opacity: "+100*overlay.style.opacity+"%</br><br>Overlay number: "+overlaySrc+"</br>",overlayInformationTimeout=setTimeout(function(){overlayInformation.style.display="none"},1e3)}function changeCoordinates(e,o){"vertical"===e?(overlay.style.top=+overlay.style.top.slice(0,-2)+parseInt(o,10)+"px",localStorage.setItem("vertical",overlay.style.top)):(overlay.style.left=+overlay.style.left.slice(0,-2)+parseInt(o,10)+"px",localStorage.setItem("horizontal",overlay.style.left)),showOverlayInformation()}function resetCoordinates(){overlay.style.top=0,overlay.style.left=0,localStorage.setItem("vertical",overlay.style.top),localStorage.setItem("horizontal",overlay.style.left),showOverlayInformation()}function changeOpacity(e){overlay.style.opacity=(10*overlay.style.opacity+e)/10,overlay.style.opacity<0?overlay.style.opacity=0:1<overlay.style.opacity&&(overlay.style.opacity=1),localStorage.setItem("opacity",overlay.style.opacity),showOverlayInformation()}function changeOverlaySrc(e){"next"===e?overlay.src="./overlays/overlay"+ ++overlaySrc:0<overlaySrc&&(overlay.src="./overlays/overlay"+--overlaySrc),localStorage.setItem("overlaynumber",overlaySrc),showOverlayInformation()}function toggleDisplay(){"block"===overlay.style.display?(overlay.style.display="none",localStorage.setItem("overlaydisplay","none")):(overlay.style.display="block",localStorage.setItem("overlaydisplay","block"))}function toggleHelp(){"none"===overlayHelp.style.display?overlayHelp.style.display="flex":overlayHelp.style.display="none"}function removeKey(e){for(var o=0;o<pressedKeys.length;o++)pressedKeys[o]===e&&pressedKeys.splice(o,1)}function addKey(e){-1===pressedKeys.indexOf(e)&&pressedKeys.push(e)}function checkControls(){for(var e=0;e<controls.length;e++)if(controls[e].check()){controls[e].result();break}}function clearLocalStorage(){localStorage.clear()}styleElements(styleList),localStorage.getItem("overlaydisplay")?overlay.style.display=localStorage.getItem("overlaydisplay"):overlay.style.display="block",overlaySrc=localStorage.getItem("overlaynumber")?(overlay.src="./overlays/overlay"+localStorage.getItem("overlaynumber"),localStorage.getItem("overlaynumber")):(overlay.src="./overlays/overlay0",0),localStorage.getItem("vertical")?overlay.style.top=localStorage.getItem("vertical"):overlay.style.top="0",localStorage.getItem("horizontal")?overlay.style.left=localStorage.getItem("horizontal"):overlay.style.left="0",localStorage.getItem("opacity")?overlay.style.opacity=localStorage.getItem("opacity"):overlay.style.opacity="0.5",overlay.style.width='"'+overlay.naturalWidth+'px"',overlay.style.height='"'+overlay.naturalHeight+'px"',overlayHelp.innerHTML="<br>Arrows – Move overlay</br><br>Ctrl + arrows – Wide steps</br><br>PageUp/PageDown – Previous/Next overlay</br><br>Comma/Period – Change overlay opacity</br><br>Home – Reset overlay position</br><br>Backquote – Show/Hide overlay</br><br>Delete – Clear local storage</br>",document.body.insertBefore(overlay,null),document.body.insertBefore(overlayInformation,null),document.body.insertBefore(overlayHelp,null),document.addEventListener("keydown",function(e){-1!==blockedKeys.indexOf(e.keyCode)&&e.preventDefault(),e.code?addKey(e.code):addKey(keyCodeToCode[e.keyCode]),checkControls()}),document.addEventListener("keyup",function(e){e.code?removeKey(e.code):removeKey(keyCodeToCode[e.keyCode])})}();</script>
   <script src="js/script.js" async></script>
   <script type="application/ld+json">
     {

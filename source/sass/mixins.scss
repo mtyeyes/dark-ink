@@ -1,14 +1,18 @@
-@mixin list-reset {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+@mixin heading {
+  position: relative;
+  font-family: $secondary-font;
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $white;
 }
 
-@mixin font-general {
-  font-family: "lato", "roboto", sans-serif;
+@mixin small-and-dim {
+  font-family: $main-font;
   font-size: 16px;
-  font-weight: normal;
-  line-height: 24px;
-  letter-spacing: normal;
-  color: $white;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $dim;
 }
