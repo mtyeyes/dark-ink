@@ -1,3 +1,7 @@
+.about {
+  margin-bottom: 50px;
+}
+
 .about__link {
   display: none;
 }
@@ -67,12 +71,12 @@
 
 @media (min-width: $tablet-width) {
   .about {
-    margin: 0 auto;
+    margin: 116px auto 50px;
   }
 
   .about__pictures-container {
     position: relative;
-    width: 80%;
+    width: 83%;
     height: 55vw;
     margin: 100px 0 12px 35px;
   }
@@ -98,7 +102,6 @@
     position: relative;
     width: 500px;
     margin: 15px 0 0 5vw;
-    letter-spacing: -0.1px;
   }
 
   .about__text--emphasis {
@@ -187,13 +190,12 @@
   .about__link:focus {
     color: $white;
     outline: none;
-    border-bottom: 2px solid $red;
+    border-bottom: 1px solid $red;
   }
 
   .about__link:active {
-    color: $dim;
-    outline: none;
-    border-bottom: 2px solid $red;
+    color: $red;
+    border-bottom: none;
   }
 }
 

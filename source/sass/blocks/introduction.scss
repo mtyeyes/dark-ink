@@ -88,14 +88,17 @@
 
 .introduction__phone-link:focus,
 .introduction__phone-link:hover {
-  color: $dim;
+  color: $red;
   outline: none;
-  border-bottom: 2px solid $red;
+}
+
+.introduction__phone-link:active {
+  color: $dim;
 }
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
   .introduction {
-    background-image: url("../img/introduction-bg-person@2x.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));;
+    background-image: url("../img/introduction-bg-person@2x.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));
   }
 }
 
@@ -115,7 +118,7 @@
 
 @media (min-width: $tablet-width) {
   .introduction {
-    background-position: 74% bottom, top left;
+    background-position: 79% bottom, top left;
     background-size: 285px, auto;
   }
 
@@ -124,7 +127,7 @@
   }
 
   .introduction__wrap--middle {
-    margin: 50px 0 40px 15px;
+    margin: 50px 0 40px 30px;
     padding: 0;
     position: relative;
     z-index: 1;
@@ -140,18 +143,18 @@
   }
 
   .introduction__wrap--bottom {
-    margin-left: -30px;
+    margin-left: 0;
   }
 
   @media (max-width: 991px) {
     @keyframes background-slide {
       from {
-        background-position: 81% -8%, top left;
+        background-position: 85% -8%, top left;
         background-size: 305px, auto;
       }
 
       to {
-        background-position: 74% bottom, top left;
+        background-position: 79% bottom, top left;
         background-size: 285px, auto;
       }
     }
