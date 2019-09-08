@@ -2,7 +2,7 @@
   background-image: url("../img/introduction-bg-person.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));
   background-repeat: no-repeat, repeat;
   background-position: 70% bottom, top left;
-  background-size: 258px;
+  background-size: 258px, auto;
   animation: background-slide 8s;
 }
 

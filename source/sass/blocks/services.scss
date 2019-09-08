@@ -1,6 +1,6 @@
-.services {
+.services__container {
   margin: 190px auto 0;
-  width: 300px;
+  width: 290px;
   padding-right: 30px;
 }
 
@@ -88,7 +88,7 @@
 }
 
 @media (min-width: $tablet-width) {
-  .services {
+  .services__container {
     width: $tablet-container-width;
     margin: 260px auto 0;
     padding-right: 0;
@@ -129,13 +129,18 @@
 
 @media (min-width: $pre-desktop-width) {
   .services {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .services__container {
     position: relative;
     width: $pre-desktop-container-width;
     margin: 167px auto 0;
     padding-right: 0;
   }
 
-  .services::after {
+  .services__container::after {
     content: "";
     position: absolute;
     bottom: 10px;
@@ -211,19 +216,19 @@
   }
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    .services::after {
+    .services__container::after {
       background-image: url("../img/services-bg@2x.png");
     }
   }
 }
 
 @media (min-width: $desktop-width) {
-  .services {
+  .services__container {
     width: $desktop-container-width;
     margin: 160px auto 60px;
   }
 
-  .services::after {
+  .services__container::after {
     bottom: -60px;
     right: -60px;
     height: 752px;
