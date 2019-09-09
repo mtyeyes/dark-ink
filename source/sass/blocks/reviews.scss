@@ -1,0 +1,220 @@
+.reviews {
+  margin: 35px auto;
+  width: 290px;
+}
+
+.reviews__heading {
+  @include heading;
+}
+
+.reviews__carousel {
+  width: 290px;
+  overflow: hidden;
+}
+
+.reviews__list {
+  display: flex;
+  width: 610px;
+  padding: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  list-style: none;
+}
+
+.reviews__text {
+  position: relative;
+  margin-top: 75px;
+  font-family: $main-font;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.1px;
+  font-weight: 400;
+  color: $white;
+  width: 290px;
+}
+
+.reviews__text::after {
+  content: "";
+  position: absolute;
+  width: 66px;
+  height: 49px;
+  top: -75px;
+  left: 0;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg width='66' height='49' viewBox='0 0 66 49' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36.903 49V45.902C46.106 40.587 51.788 33.847 53.945 25.68C51.61 27.204 49.486 27.968 47.575 27.968C44.389 27.968 41.7 26.678 39.504 24.092C37.31 21.509 36.211 18.352 36.211 14.613C36.211 10.48 37.654 7.008 40.538 4.206C43.425 1.405 46.973 0 51.185 0C55.398 0 58.92 1.784 61.751 5.352C64.585 8.919 66 13.359 66 18.669C66 26.151 63.15 32.852 57.451 38.781C51.751 44.706 44.902 48.112 36.903 49ZM0.69 49V45.902C9.895 40.587 15.577 33.847 17.734 25.68C15.399 27.204 13.256 27.968 11.311 27.968C8.159 27.968 5.488 26.678 3.291 24.092C1.096 21.51 0 18.353 0 14.614C0 10.481 1.434 7.009 4.301 4.207C7.168 1.405 10.709 0 14.92 0C19.167 0 22.698 1.784 25.512 5.352C28.326 8.919 29.735 13.359 29.735 18.669C29.735 26.151 26.892 32.852 21.211 38.781C15.53 44.706 8.69 48.112 0.69 49Z' fill='%23999999'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+}
+
+.reviews__client-info {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 35px;
+}
+
+.reviews__client-name {
+  position: relative;
+  margin: 15px 0 0 25px;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.5;
+  color: $white;
+}
+
+.reviews__client-name::after {
+  content: "Client";
+  bottom: 12px;
+  left: 0;
+  position: absolute;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: $main-font;
+  color: $dim;
+}
+
+.reviews__client-photo {
+  border-radius: 50px;
+}
+
+.reviews__form {
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 40px;
+}
+
+.reviews__label {
+  width: 11px;
+  height: 11px;
+  border: 2px solid $dim;
+  border-radius: 50px;
+}
+
+.reviews__label:hover,
+.reviews__label:focus {
+  background-color: $dim;
+}
+
+.reviews__radio-btn:first-of-type:checked ~ .reviews__label:first-of-type,
+.reviews__radio-btn:last-of-type:checked ~ .reviews__label:last-of-type {
+  background-color: $red;
+}
+
+@media (min-width: $tablet-width) {
+  .reviews {
+    margin: 67px auto 50px;
+    width: $tablet-container-width;
+  }
+
+  .reviews__heading {
+    margin-left: 30px;
+  }
+
+  .reviews__carousel {
+    width: 690px;
+    margin: 0 auto;
+  }
+
+  .reviews__list {
+    width: 690px;
+  }
+
+  .reviews__text {
+    width: 330px;
+  }
+
+  .reviews__form {
+    display: none;
+  }
+}
+
+@media (min-width: $pre-desktop-width) {
+  .reviews {
+    margin: 107px auto 50px;
+    width: $pre-desktop-width;
+  }
+
+  .reviews__heading {
+    margin-left: 60px;
+  }
+
+  .reviews__heading::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: -31px;
+    height: 34px;
+    width: 1px;
+    background-color: $red;
+  }
+
+  .reviews__carousel {
+    padding-left: 30px;
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  .reviews__list {
+    width: 900px;
+  }
+
+  .reviews__text {
+    letter-spacing: 0;
+    width: 435px;
+    z-index: 1;
+  }
+
+  .reviews__client-info picture {
+    z-index: 1;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .reviews {
+    margin: 130px auto 50px;
+    width: $desktop-width;
+  }
+
+  .reviews__heading {
+    font-size: 48px;
+    line-height: 1.25;
+    margin-left: 46px;
+  }
+
+  .reviews__heading::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: -31px;
+    height: 34px;
+    width: 1px;
+    background-color: $red;
+  }
+
+  .reviews__carousel {
+    padding-left: 0;
+    width: 1085px;
+    margin: 0 0 0 45px;
+  }
+
+  .reviews__list {
+    width: 1085px;
+  }
+
+  .reviews__text {
+    width: 500px;
+    margin-top: 60px;
+    letter-spacing: 0;
+  }
+
+  .reviews__client-name {
+    margin-top: 10px;
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  .reviews__client-name::after {
+    top: 40px;
+  }
+}
