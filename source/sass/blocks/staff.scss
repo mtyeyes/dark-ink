@@ -12,6 +12,7 @@
 .staff__link {
   text-decoration: none;
   color: inherit;
+  transition: 500ms;
 }
 
 .staff__see-all-btn {
@@ -93,11 +94,16 @@
   font-weight: 500;
   text-align: center;
   color: $white;
+  transition: 500ms;
 }
 
+.staff__link:hover,
+.staff__link:focus,
 .staff__name:hover,
 .staff__name:focus {
   color: $red;
+  outline: none;
+  transition: 500ms;
 }
 
 .staff__position {
@@ -126,7 +132,7 @@
 
 .staff__comtacts-icon {
   opacity: 0;
-  display: block;
+  display: none;
   background-repeat: no-repeat;
   background-position-y: 50%;
   transition: 1s;
@@ -135,6 +141,7 @@
 .staff__pop-up-wrapper:hover .staff__comtacts-icon,
 .staff__pop-up-wrapper:focus .staff__comtacts-icon {
   opacity: 1;
+  display: block;
   transition: 1s;
 }
 
@@ -224,7 +231,7 @@
     height: 30px;
     width: 50px;
     background-image: url("data:image/svg+xml,%3Csvg width='50' height='30' viewBox='0 0 50 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 4.34882L46.5572 14.5L36 24.6512V4.34882Z' stroke='%23F13F3F' stroke-width='2'/%3E%3Ccircle cx='25' cy='15' r='7' stroke='%23F13F3F' stroke-width='2'/%3E%3Cpath d='M14 24.6512L3.44277 14.5L14 4.34882L14 24.6512Z' stroke='%23F13F3F' stroke-width='2'/%3E%3C/svg%3E%0A");
-    animation: pulsating 4s infinite alternate;
+    animation: fade-in 4s infinite alternate;
     z-index: 10;
   }
 
@@ -235,16 +242,6 @@
 
   .staff .no-js--carousel::-webkit-scrollbar {
     width: 0 !important;
-  }
-
-  @keyframes pulsating {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
   }
 }
 

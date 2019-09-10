@@ -71,9 +71,12 @@
   transition: color 500ms;
 }
 
+.services__link:hover,
+.services__link:focus,
 .services__sub-heading:hover,
 .services__sub-heading:focus {
   color: $red;
+  outline: none;
   transition: color 500ms;
 }
 
