@@ -30,7 +30,7 @@
 
 .about__heading {
   @include heading;
-  width: 290px;
+  width: 91%;
   margin: 3px auto 43px;
   line-height: 42px;
 }
@@ -38,7 +38,7 @@
 .about__text {
   @include small-and-dim;
   position: relative;
-  width: 290px;
+  width: 91%;
   margin: 15px auto 0;
   line-height: 24px;
 }
@@ -58,6 +58,7 @@
   height: 61px;
   background-image: url("../img/about-sign.png");
 }
+
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
   .about {

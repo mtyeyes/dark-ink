@@ -263,34 +263,47 @@
             <li class="gallery__image-wrapper">
               <picture>
                 <source type="image/webp" srcset="img/gallery-0.webp 1x, img/gallery-0@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-0.jpg" srcset="img/gallery-0@2x.jpg 2x" width="640" height="380" alt="Tattoo example">
+                <img class="gallery__image" src="img/gallery-0.jpg" srcset="img/gallery-0@2x.jpg 2x" width="640" height="380" alt="Tattoo example" loading="lazy">
               </picture>
             </li>
             <li class="gallery__image-wrapper">
               <picture>
                 <source type="image/webp" srcset="img/gallery-1.webp 1x, img/gallery-1@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-1.jpg" srcset="img/gallery-1@2x.jpg 2x" width="640" height="380" alt="Tattoo example">
+                <img class="gallery__image" src="img/gallery-1.jpg" srcset="img/gallery-1@2x.jpg 2x" width="640" height="380" alt="Tattoo example" loading="lazy">
               </picture>
             </li>
             <li class="gallery__image-wrapper">
               <picture>
                 <source type="image/webp" srcset="img/gallery-2.webp 1x, img/gallery-2@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-2.jpg" srcset="img/gallery-2@2x.jpg 2x" width="640" height="380" alt="Tattoo example">
+                <img class="gallery__image" src="img/gallery-2.jpg" srcset="img/gallery-2@2x.jpg 2x" width="640" height="380" alt="Tattoo example" loading="lazy">
               </picture>
             </li>
             <li class="gallery__image-wrapper">
               <picture>
                 <source type="image/webp" srcset="img/gallery-3.webp 1x, img/gallery-3@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-3.jpg" srcset="img/gallery-3@2x.jpg 2x" width="640" height="380" alt="Tattoo example">
+                <img class="gallery__image" src="img/gallery-3.jpg" srcset="img/gallery-3@2x.jpg 2x" width="640" height="380" alt="Tattoo example" loading="lazy">
               </picture>
             </li>
             <li class="gallery__image-wrapper">
               <picture>
                 <source type="image/webp" srcset="img/gallery-4.webp 1x, img/gallery-4@2x.webp 2x">
-                <img class="gallery__image" src="img/gallery-4.jpg" srcset="img/gallery-4@2x.jpg 2x" width="640" height="380" alt="Tattoo example">
+                <img class="gallery__image" src="img/gallery-4.jpg" srcset="img/gallery-4@2x.jpg 2x" width="640" height="380" alt="Tattoo example" loading="lazy">
               </picture>
             </li>
           </ul>
+        </div>
+      </section>
+      <section class="form">
+        <div class="form__container">
+          <h2 class="form__heading">Get in touch</h2>
+          <p class="form__text">Have any questions? Feel free to use the contact form below to get in touch with us. We will answer you as soon as possible!</p>
+          <form class="form__wrapper">
+            <input class="form__input form__input--name" type="text" name="name" id="field-name" placeholder="Your Name" pattern="^[A-Za-zА-Яа-яЁё]+$" required>
+            <input class="form__input form__input--email" type="email" name="mail" id="field-mail" placeholder="Your Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+            <input class="form__input form__input--phone" type="tel" name="phone" id="field-phone" placeholder="Your Phone" pattern=".{10,}">
+            <textarea class="form__input form__input--message" name="text" id="field-message" placeholder="Your Message" required></textarea>
+            <button class="form__btn btn" type="submit">Send message</button>
+          </form>
         </div>
       </section>
     </main>

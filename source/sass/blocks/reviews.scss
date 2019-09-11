@@ -1,6 +1,6 @@
 .reviews {
   margin: 35px auto;
-  width: 290px;
+  width: 91vw;
 }
 
 .reviews__heading {
@@ -8,13 +8,16 @@
 }
 
 .reviews__carousel {
-  width: 290px;
+  width: 91vw;
+  height: calc(460px - 18vw);
   overflow: hidden;
+  position: relative;
 }
 
 .reviews__list {
+  position: absolute;
   display: flex;
-  width: 610px;
+  width: 184vw;
   padding: 0;
   flex-direction: row;
   justify-content: space-between;
@@ -31,7 +34,7 @@
   letter-spacing: -0.1px;
   font-weight: 400;
   color: $white;
-  width: 290px;
+  width: 91vw;
 }
 
 .reviews__text::after {
@@ -78,26 +81,43 @@
 }
 
 .reviews__form {
-  margin: 15px auto;
+  margin: 5px auto;
   display: flex;
   justify-content: space-between;
-  width: 40px;
+  width: 70px;
 }
 
 .reviews__label {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+
+.reviews__label::after {
+  content: "";
+  position: absolute;
+  top: 11px;
   width: 11px;
   height: 11px;
   border: 2px solid $dim;
   border-radius: 50px;
 }
 
-.reviews__label:hover,
-.reviews__label:focus {
+.reviews__label:first-of-type::after {
+  right: 5px;
+}
+
+.reviews__label:last-of-type::after {
+  left: 5px;
+}
+
+.reviews__label:hover::after,
+.reviews__label:focus::after {
   background-color: $dim;
 }
 
-.reviews__radio-btn:first-of-type:checked ~ .reviews__label:first-of-type,
-.reviews__radio-btn:last-of-type:checked ~ .reviews__label:last-of-type {
+.reviews__radio-btn:first-of-type:checked ~ .reviews__label:first-of-type::after,
+.reviews__radio-btn:last-of-type:checked ~ .reviews__label:last-of-type::after {
   background-color: $red;
 }
 
@@ -113,6 +133,7 @@
 
   .reviews__carousel {
     width: 690px;
+    height: 385px;
     margin: 0 auto;
   }
 
@@ -152,6 +173,7 @@
   .reviews__carousel {
     padding-left: 30px;
     width: 900px;
+    height: 355px;
     margin: 0 auto;
   }
 
@@ -195,6 +217,7 @@
   .reviews__carousel {
     padding-left: 0;
     width: 1085px;
+    height: 318px;
     margin: 0 0 0 45px;
   }
 
