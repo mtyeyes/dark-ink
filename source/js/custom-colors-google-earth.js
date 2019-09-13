@@ -1,3 +1,4 @@
+  (function () {
   var geocoder = new google.maps.Geocoder();
   var address = "1401 W 6th St, Los Angeles, CA 90017, USA";
   var map = new google.maps.Map(document.querySelector('.map__interactive'), {
@@ -265,14 +266,15 @@
     ]
   });
 
-(function codeAddress(geocoder, map) {
-  geocoder.geocode({'address': address}, function(results, status) {
-    if (status === 'OK') {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-        map: map,
-        position: results[0].geometry.location
-      });
-    }
-  });
-})(geocoder, map)
+  (function codeAddress(geocoder, map) {
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      }
+    });
+  })(geocoder, map)
+}())
