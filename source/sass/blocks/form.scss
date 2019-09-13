@@ -1,6 +1,6 @@
 .form {
   margin-top: 90px;
-  margin-bottom: 75px;
+  margin-bottom: 55px;
 }
 
 .form__heading {
@@ -61,7 +61,7 @@
   border: $white 1px solid;
 }
 
-.form__input:invalid {
+.form--submitted .form__input:invalid {
   border: $red 1px solid;
   outline: none;
 }
@@ -72,7 +72,7 @@
 
 @media (min-width: $tablet-width) {
   .form {
-    margin: 73px auto 75px;
+    margin: 73px auto 70px;
     width: $tablet-container-width;
   }
 
@@ -98,7 +98,7 @@
 @media (min-width: $pre-desktop-width) {
   .form {
     position: relative;
-    margin: 122px auto 75px;
+    margin: 122px auto 90px;
     width: $pre-desktop-container-width;
   }
 

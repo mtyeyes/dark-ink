@@ -88,9 +88,16 @@
   position: absolute;
   width: 100%;
   height: auto;
-  left: 0;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
+  transition: 500ms;
+}
+
+.gallery__image-wrapper:hover .gallery__image,
+.gallery__image-wrapper:focus .gallery__image {
+  width: 110%;
+  transition: 500ms;
 }
 
 .gallery__btn {
