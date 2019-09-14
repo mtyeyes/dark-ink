@@ -1,0 +1,36 @@
+.modal-alert {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 80;
+}
+
+.modal-alert--show {
+  display: block;
+}
+
+.modal-alert__wrapper {
+  position: fixed;
+  width: 300px;
+  top: 35vh;
+  left: calc(50% - 150px);
+  background-color: #202020;
+  z-index: 90;
+}
+
+.modal-alert__close-btn {
+  display: block;
+  width: 40%;
+  margin: 10px auto 25px;
+}
+
+.modal-alert__text {
+  @include small-and-dim;
+  text-align: center;
+  width: 85%;
+  margin: 20px auto;
+}

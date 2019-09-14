@@ -38,3 +38,21 @@
   background-color: $dim;
   transition: 0s;
 }
+
+.btn:disabled {
+  cursor: default;
+}
+
+.btn:disabled::before {
+  background-color: $dim;
+}
+
+.btn:disabled:hover,
+.btn:disabled:focus {
+  color: $dim;
+}
+
+.btn:disabled:hover::before,
+.btn:disabled:focus::before {
+  width: 0;
+}

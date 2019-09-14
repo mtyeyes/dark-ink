@@ -61,7 +61,11 @@
   border: $white 1px solid;
 }
 
-.form--submitted .form__input:invalid {
+.form__input:invalid {
+  outline: none;
+}
+
+.form__input--changed:invalid {
   border: $red 1px solid;
   outline: none;
 }
