@@ -1,9 +1,9 @@
 ( function() {
-  var classNames = ['no-js--remove', 'no-js--show', 'no-js--carousel'];
-  for (var i=0; i < classNames.length; i++) {
-    var listOfElements = document.querySelectorAll(('.'+ classNames[i]));
-      for (var j=0; j<listOfElements.length; j++) {
-        eval(listOfElements[j]).classList.remove(classNames[i]);
+  const classNames = ['no-js--remove', 'no-js--show', 'no-js--carousel'];
+  for (let className of classNames) {
+    let arrayOfElements = document.querySelectorAll('.'+ className);
+    for (let element of arrayOfElements) {
+      element.classList.remove(className);
     }
   };
-})();
+}());

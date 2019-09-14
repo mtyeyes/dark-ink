@@ -79,6 +79,7 @@
   display: block;
   width: 270px;
   padding: 9px 0;
+  color: $white;
 }
 
 .site-nav__item:focus,
@@ -89,7 +90,7 @@
 .site-nav__link {
   display: block;
   text-decoration: none;
-  color: $white;
+  color: inherit;
   padding-left: 15px;
 }
 
@@ -290,6 +291,19 @@
     width: 450px;
     padding: 9px 0 9px 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: 500ms;
+  }
+
+  .site-nav__item:focus,
+  .site-nav__item:hover {
+    background-color: transparent;
+    color: $red;
+    transition: 500ms;
+  }
+
+  .site-nav__item--active {
+    background-color: transparent;
+    color: $red;
   }
 
   .site-nav__item:first-child {
@@ -314,5 +328,28 @@
   .site-nav__sub-menu-toggle:hover::after,
   .site-nav__sub-menu-toggle:focus::after {
     background-image: url("data:image/svg+xml,%3Csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L4 4L7 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  }
+
+  .site-nav__sub-menu .site-nav__item {
+    color: $dim;
+    padding-left: 30px;
+    background-color: transparent;
+    transition: 500ms;
+  }
+
+  .site-nav__sub-menu .site-nav__item:hover,
+  .site-nav__sub-menu .site-nav__item:focus {
+    padding-left: 50px;
+    color: $white;
+    background-color: transparent;
+    transition: 500ms;
+  }
+
+  .site-nav__sub-menu-toggle:focus,
+  .site-nav__sub-menu-toggle:hover {
+    color: $red;
+    background-color: transparent;
+    outline: none;
+    transition: 500ms;
   }
 }

@@ -11,6 +11,7 @@ var imagemin = require("gulp-imagemin");
 var htmlmin = require("gulp-htmlmin");
 var del = require("del");
 var concat = require("gulp-concat");
+var babel = require("gulp-babel");
 var terser = require("gulp-terser");
 var webp = require('gulp-webp');
 
@@ -59,7 +60,7 @@ gulp.task("server", function () {
 
   gulp.watch("source/*.html", gulp.series("html", "refresh"));
   gulp.watch("source/sass/**/*.{scss,sass}", gulp.series("css"));
-  gulp.watch("source/js/*", gulp.series("script", "refresh"));
+  gulp.watch("source/js/*", gulp.series("script", "es5script", "refresh"));
 });
 
 gulp.task("refresh", function (done) {
@@ -78,6 +79,14 @@ gulp.task("script", function() {
     .pipe(gulp.dest("build/js/"));
 });
 
+gulp.task("es5script", function() {
+  return gulp.src(["node_modules/@babel/polyfill/dist/polyfill.js", "source/js/*.js"])
+  .pipe(concat("script.es5.js"))
+  .pipe(babel())
+  .pipe(terser())
+  .pipe(gulp.dest("build/js/"));
+})
+
 gulp.task("copy", function (){
   return gulp.src([
     "source/fonts/**/*.{woff,woff2}",
@@ -90,6 +99,6 @@ gulp.task("copy", function (){
 
 gulp.task("images", gulp.series("img", "convert"))
 
-gulp.task("build", gulp.series("clean", "copy", "css", "script", "html"));
+gulp.task("build", gulp.series("clean", "copy", "css", "script", "es5script", "html"));
 
 gulp.task("start", gulp.series("build", "server"));
