@@ -1,0 +1,29 @@
+.scroll-to-top {
+  visibility: hidden;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: $red;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6.00172C12 6.10596 11.9599 6.19817 11.8798 6.27835L11.2786 6.87973C11.1984 6.95991 11.1062 7 11.002 7C10.8978 7 10.8056 6.95991 10.7255 6.87973L6 2.15292L1.27455 6.87973C1.19439 6.95991 1.1022 7 0.997996 7C0.893788 7 0.801603 6.95991 0.721443 6.87973L0.12024 6.27835C0.0400802 6.19817 0 6.10596 0 6.00172C0 5.89748 0.0400802 5.80527 0.12024 5.72509L5.72345 0.120275C5.80361 0.0400916 5.89579 0 6 0C6.10421 0 6.19639 0.0400916 6.27655 0.120275L11.8798 5.72509C11.9599 5.80527 12 5.89748 12 6.00172Z' fill='white'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center;
+  bottom: -40px;
+  right: 40px;
+  transition: 500ms;
+  z-index: 80;
+}
+
+.scroll-to-top--show {
+  visibility: visible;
+  bottom: 40px;
+  transition: 500ms;
+}
+
+.scroll-to-top--show:hover,
+.scroll-to-top--show:focus {
+  background-color: $black;
+}
+
+.scroll-to-top--show:active {
+  background-color: $dim;
+}
