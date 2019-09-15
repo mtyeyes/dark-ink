@@ -153,11 +153,11 @@
 @media (min-width: $pre-desktop-width) {
   .reviews {
     margin: 107px auto 50px;
-    width: $pre-desktop-width;
+    width: $pre-desktop-container-width;
   }
 
   .reviews__heading {
-    margin-left: 60px;
+    margin-left: 52px;
   }
 
   .reviews__heading::before {
