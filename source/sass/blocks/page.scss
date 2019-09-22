@@ -1,10 +1,12 @@
 .page {
   position: relative;
+  background-color: #1f1f1f;
   background-image: url("../img/main-bg.jpg");
 }
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
   .page {
+    background-size: 152px 140px;
     background-image: url("../img/main-bg@2x.jpg");
   }
 }

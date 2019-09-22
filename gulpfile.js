@@ -34,7 +34,7 @@ gulp.task("css", function () {
 });
 
 gulp.task("img", function () {
-  return gulp.src("source/img/**/*.{png,jpg,svg}")
+  return gulp.src(["source/img/**/*.{png,jpg,svg}", "!source/img/gallery*uc.jpg}"])
   .pipe(imagemin([
     imagemin.optipng({optimizationLevel: 4}),
     imagemin.jpegtran({progressive: true}),
@@ -44,7 +44,7 @@ gulp.task("img", function () {
 });
 
 gulp.task("convert", function () {
-  return gulp.src("source/img/*.{png,jpg}")
+  return gulp.src(["source/img/*.{png,jpg}", "!source/img/gallery*uc.jpg}", "!source/img/*-bg*.{png,jpg}"])
   .pipe(webp())
   .pipe(gulp.dest("source/img"));
 });

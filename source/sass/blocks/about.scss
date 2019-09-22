@@ -25,6 +25,10 @@
   line-height: 42px;
 }
 
+.about__heading--newline {
+  display: none;
+}
+
 .about__text {
   @include small-and-dim;
   position: relative;
@@ -47,14 +51,11 @@
   width: 148px;
   height: 61px;
   background-image: url("../img/about-sign.png");
+  background-size: 100%;
 }
 
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-  .about {
-    background-image: url("../img/img/main-bg@2x.jpg");
-  }
-
   .about__text:last-child::after {
     background-image: url("../img/about-sign@2x.png");
   }
@@ -77,8 +78,8 @@
   }
 
   .about__heading {
-    width: 100px;
-    margin: 0 0 43px 5vw;
+    width: 120px;
+    margin: 0 0 40px 5vw;
     font-family: $secondary-font;
     color: $white;
     font-size: 28px;
@@ -86,6 +87,10 @@
     line-height: 42px;
     letter-spacing: 0;
     text-transform: uppercase;
+  }
+
+  .about__heading--newline {
+    display: block;
   }
 
   .about__text {
@@ -96,6 +101,7 @@
 
   .about__text--emphasis {
     width: 550px;
+    margin-bottom: 18px;
   }
 }
 
@@ -185,7 +191,7 @@
   .about__link:focus {
     color: $red;
     outline: none;
-    border-bottom: 1px solid $dim;
+    border-bottom: 1px solid $white;
   }
 
   .about__link:active {
@@ -205,6 +211,8 @@
   }
 
   .about__heading {
+    width: auto;
+    margin-bottom: 40px;
     font-size: 48px;
     line-height: 1.25;
   }
@@ -233,7 +241,7 @@
   }
 
   .about__pictures-container::before {
-    top: 0;
+    top: 3px;
     right: 230px;
   }
 

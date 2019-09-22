@@ -22,50 +22,41 @@
 
 .staff__carousel {
   position: relative;
-  height: 375px;
-  width: 290px;
+  min-width: 285px;
+  width: 60vw;
   margin: 40px auto;
   overflow: hidden;
 }
 
 .staff__list {
-  position: absolute;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 375px;
-  width: 960px;
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
   list-style: none;
+  transition: 300ms;
 }
 
 .staff__person {
   flex-shrink: 0;
   flex-grow: 0;
   position: relative;
-  height: 375px;
-  width: 290px;
+  width: auto;
   margin: 0 30px 0 0;
 }
 
 .staff__person:last-child {
-  margin: 0 0 0 0;
-}
-
-.staff__photo--wrapper {
-  position: relative;
-  height: 375px;
-  width: 290px;
+  margin-right: 0;
 }
 
 .staff__photo {
-  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  min-width: 285px;
+  width: 60vw;
   height: auto;
 }
 
@@ -74,7 +65,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 33%;
+  height: 125px;
   border-bottom: 2px solid $red;
   background-color: #202020;
   transition: 1s;
@@ -82,13 +73,14 @@
 
 .staff__pop-up-wrapper:hover {
   width: 100%;
-  height: 44%;
+  height: 160px;
   border-bottom: 5px solid $red;
   transition: 1s;
 }
 
 .staff__name {
   margin-top: 30px;
+  margin-bottom: 17px;
   font-family: $secondary-font;
   font-size: 22px;
   font-weight: 500;
@@ -206,43 +198,13 @@
 
 .staff__label:hover,
 .staff__label:focus {
-  background: linear-gradient(rgba(0, 0, 0, 0) 40%, #000000 40%, #000000 55%, rgba(0, 0, 0, 0) 55%);
+  background: linear-gradient(rgba(0, 0, 0, 0) 40%, #ffffff 40%, #ffffff 55%, rgba(0, 0, 0, 0) 55%);
 }
 
 .staff__radio-btn:first-of-type:checked ~ .staff__label:first-of-type,
 .staff__radio-btn:nth-of-type(2):checked ~ .staff__label:nth-of-type(2),
 .staff__radio-btn:last-of-type:checked ~ .staff__label:last-of-type {
   background: linear-gradient(rgba(0, 0, 0, 0) 40%, #f13f3f 40%, #f13f3f 55%, rgba(0, 0, 0, 0) 55%);
-}
-
-@media (max-width: 991px) {
-  .staff .no-js--carousel {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .staff .no-js--carousel::after {
-    content: "";
-    position: absolute;
-    top: 70%;
-    left: calc(50% - 25px);
-    height: 30px;
-    width: 50px;
-    background-image: url("data:image/svg+xml,%3Csvg width='50' height='30' viewBox='0 0 50 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 4.34882L46.5572 14.5L36 24.6512V4.34882Z' stroke='%23F13F3F' stroke-width='2'/%3E%3Ccircle cx='25' cy='15' r='7' stroke='%23F13F3F' stroke-width='2'/%3E%3Cpath d='M14 24.6512L3.44277 14.5L14 4.34882L14 24.6512Z' stroke='%23F13F3F' stroke-width='2'/%3E%3C/svg%3E%0A");
-    animation: fade-in 4s infinite alternate;
-    z-index: 10;
-  }
-
-  .staff .no-js--carousel:hover::after {
-    opacity: 0;
-    animation: none;
-  }
-
-  .staff .no-js--carousel::-webkit-scrollbar {
-    width: 0 !important;
-  }
 }
 
 @media (min-width: $tablet-width) {
@@ -270,35 +232,24 @@
 
   .staff__carousel {
     width: 690px;
-    height: 430px;
-    margin: 30px auto 40px;
+    margin: 28px auto 40px;
   }
 
-  .staff__list {
-    height: 430px;
-    width: 1080px;
-  }
 
-  .staff__photo--wrapper {
-    height: 430px;
-  }
-
-  .staff__person {
+  .staff__photo {
     width: 330px;
-    height: 430px;
-  }
-
-  .staff__radio-btn:nth-of-type(2),
-  .staff__label:nth-of-type(2) {
-    display: none;
   }
 
   .staff__pop-up-wrapper {
-    height: 30%;
+    height: 29%;
   }
 
   .staff__pop-up-wrapper:hover {
     height: 37%;
+  }
+
+  .staff__name {
+    margin-top: 29px;
   }
 
   .staff__form {
@@ -347,23 +298,21 @@
 
   .staff__carousel {
     width: 930px;
-    height: 380px;
     margin: 30px auto;
     z-index: 1;
   }
 
-  .staff__list {
-    height: 380px;
-    width: 960px;
-  }
 
   .staff__person {
-    height: 380px;
     width: 290px;
   }
 
   .staff__photo--wrapper {
-    height: 380px;
+    width: 290px;
+  }
+
+  .staff__photo {
+    width: 290px;
   }
 
   .staff__pop-up-wrapper {
@@ -410,13 +359,12 @@
     height: 475px;
   }
 
-  .staff__photo--wrapper {
-    height: 475px;
+  .staff__photo {
+    width: 370px;
   }
 
   .staff__list {
     width: 1170px;
-    height: 475px;
   }
 
   .staff__person {

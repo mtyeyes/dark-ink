@@ -8,14 +8,13 @@
 }
 
 .reviews__carousel {
+  position: relative;
   width: 91vw;
   height: calc(460px - 18vw);
   overflow: hidden;
-  position: relative;
 }
 
 .reviews__list {
-  position: absolute;
   display: flex;
   width: 184vw;
   padding: 0;
@@ -23,6 +22,7 @@
   justify-content: space-between;
   flex-wrap: nowrap;
   list-style: none;
+  transition: 300ms;
 }
 
 .reviews__text {

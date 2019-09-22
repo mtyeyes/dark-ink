@@ -50,8 +50,12 @@
   display: block;
 }
 
+.hidden-before-animation {
+  opacity: 0;
+}
+
 .fade-in-up {
-  animation: fade-in-up 0.5s;
+  animation: fade-in-up 1s;
 }
 
 @keyframes fade-in-up {

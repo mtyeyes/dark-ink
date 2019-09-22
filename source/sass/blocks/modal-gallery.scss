@@ -1,0 +1,144 @@
+.modal-gallery {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.9);
+  z-index: 80;
+}
+
+.modal-gallery--show {
+  display: block;
+}
+
+.modal-gallery__btn {
+  position: absolute;
+  height: 56px;
+  width: 56px;
+  top: calc(50% - 28px);
+  background: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  opacity: 0.5;
+  transition: 500ms;
+  border-radius: 50px;
+}
+
+.modal-gallery__btn:focus,
+.modal-gallery__btn:hover {
+  opacity: 1;
+  outline: none;
+  transition: 500ms;
+}
+
+.modal-gallery__btn:active {
+  background-color: rgba($color: #eeeeee, $alpha: 0.3);
+}
+
+.modal-gallery__btn--next {
+  right: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z' fill='white'/%3E%3C/svg%3E ");
+}
+
+.modal-gallery__btn--previous {
+  left: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 20L13.41 18.59L7.83 13L20 13V11L7.83 11L13.41 5.41L12 4L4 12L12 20Z' fill='white'/%3E%3C/svg%3E ");
+}
+
+.modal-gallery__btn--download {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='17' x2='16' y2='17' stroke='white' stroke-width='2'/%3E%3Cpath d='M9 0H7V10H4V10.5L8 14L12 10.5V10H9V0Z' fill='white'/%3E%3C/svg%3E%0A");
+}
+
+.modal-gallery__btn--close {
+  top: 0px;
+  right: 0px;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='1.70711' y1='1.29289' x2='14.7071' y2='14.2929' stroke='white' stroke-width='2'/%3E%3Cline x1='1.29289' y1='14.2929' x2='14.2929' y2='1.29289' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+}
+
+.modal-gallery__btn--collapse {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='4' height='4' fill='white'/%3E%3Crect x='12' y='12' width='4' height='4' fill='white'/%3E%3Crect x='6' y='12' width='4' height='4' fill='white'/%3E%3Crect y='12' width='4' height='4' fill='white'/%3E%3Crect x='12' y='6' width='4' height='4' fill='white'/%3E%3Crect x='6' y='6' width='4' height='4' fill='white'/%3E%3Crect y='6' width='4' height='4' fill='white'/%3E%3Crect x='12' width='4' height='4' fill='white'/%3E%3Crect x='6' width='4' height='4' fill='white'/%3E%3C/svg%3E%0A");
+}
+
+.modal-gallery__top-wrapper {
+  position: relative;
+  background-color: rebeccapurple;
+}
+
+.modal-gallery__bottom-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  background-color: #202020;
+}
+
+.modal-gallery__image-counter {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  font-family: $main-font;
+  letter-spacing: 2px;
+  font-size: 16px;
+  color: $dim;
+}
+
+.modal-gallery__uncompressed-image {
+  position: absolute;
+  min-width: 300px;
+  width: 33%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: nonetofullsize 1s;
+}
+
+.modal-gallery__carousel {
+  width: 25%;
+  height: 8vh;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.modal-gallery__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.modal-gallery__image-wrapper {
+  position: relative;
+  border: 2px solid $white;
+  border-radius: 5px;
+  width: 19%;
+  height: 8vh;
+  margin-right: 1%;
+  overflow: hidden;
+}
+
+.modal-gallery__image {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.modal-gallery .carousel__current-item,
+.modal-gallery__image-wrapper:focus,
+.modal-gallery__image-wrapper:hover {
+  border: 2px solid $red;
+}
+
+@keyframes nonetofullsize {
+  0% {
+    transform: scale3d(0, 0, 1) translate(-50%, -50%);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1) translate(-50%, -50%);
+  }
+}
+

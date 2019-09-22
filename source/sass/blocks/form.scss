@@ -19,6 +19,7 @@
   display: block;
   position: relative;
   width: 78%;
+  height: 24px;
   padding: 12px 19px 12px 20px;
   margin: 20px auto;
   text-indent: 30px;
@@ -48,6 +49,7 @@
 }
 
 .form__input--message {
+  overflow-x: hidden;
   resize: none;
   height: 110px;
   background-position: 14px 8px;
@@ -117,7 +119,14 @@
     background-image: url("../img/form-bg.png");
     background-size: 100% auto;
     background-repeat: no-repeat;
-    animation: fade-in 2s;
+  }
+
+  .hide-pseudo-element::before {
+    opacity: 0;
+  }
+
+  .animated-pseudo-element::before {
+    animation: fade-in 3s;
   }
 
   .form::after {

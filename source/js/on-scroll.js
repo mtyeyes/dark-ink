@@ -6,7 +6,7 @@
   const imageRight = document.querySelector('.about__img--right');
 
   const parallax = () => {
-    let maxOffset = 10;
+    let maxOffset = 15;
     let parallaxSpread = 2 * imageContainer.clientHeight;
     let parallaxStart = 1.8 * imageContainer.clientHeight;
     let scrollDistance = imageContainer.getBoundingClientRect()['y'] || imageContainer.getBoundingClientRect()['top'];
