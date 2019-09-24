@@ -90,7 +90,8 @@ gulp.task("es5script", function() {
 gulp.task("copy", function (){
   return gulp.src([
     "source/fonts/**/*.{woff,woff2}",
-    "source/img/*.*"
+    "source/img/*.*",
+    "source/favicon.ico"
   ], {
     base: "source"
   })
