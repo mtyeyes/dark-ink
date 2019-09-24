@@ -1,7 +1,7 @@
-  let initMap = () => {
-  let geocoder = new google.maps.Geocoder();
-  let address = "1401 W 6th St, Los Angeles, CA 90017, USA";
-  let map = new google.maps.Map(document.querySelector('.map__interactive'), {
+function initMap() {
+  var geocoder = new google.maps.Geocoder();
+  var address = "1401 W 6th St, Los Angeles, CA 90017, USA";
+  var map = new google.maps.Map(document.querySelector('.map__interactive'), {
     center: {lat: 34.056, lng: -118.267},
     zoom: 15,
     disableDefaultUI: true,
@@ -270,7 +270,7 @@
     geocoder.geocode({'address': address}, function(results, status) {
       if (status === 'OK') {
         map.setCenter(results[0].geometry.location);
-        let marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
         });
@@ -280,8 +280,9 @@
 };
 
 (function() {
-  let apiKey = document.createElement("script");
-  apiKey.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB90V0z_HfjN19-R2z3FciT1F5WqMtzPE8&callback=initMap';
+  var apiKey = document.createElement("script");
+  var apiKeyEncodedParts = ['XNEbnRKOTVNZXUzVFB', 'uZFVHeFgteHJRSHpJbUJR', 'QUl6YVN5RDhhL']
+  apiKey.src = 'https://maps.googleapis.com/maps/api/js?key=' + window.atob((apiKeyEncodedParts[2] + apiKeyEncodedParts[0] + apiKeyEncodedParts[1])) + '&callback=initMap';
   apiKey.type = "text/javascript";
   document.body.appendChild(apiKey);
-}());
+})();

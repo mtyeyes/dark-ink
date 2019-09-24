@@ -121,7 +121,7 @@
       if (!block || !block['swipe']) {return}
       let pointerPath = newPointerCoordinatesX - this.swipeInformation.x;
       this.swipeInformation = {};
-      if (Math.abs(pointerPath) < 70) {return}
+      if (Math.abs(pointerPath) < 60) {return}
       (pointerPath < 0) ? this.slide(block, 'right') : this.slide(block, 'left');
     },
     swipeInformation : {}
@@ -339,8 +339,10 @@
   const recalcMargin = () => {
     for (let item of modalGalleryCarousel['items']) {
       let elementWidth
-      (window.innerWidth >= 768) ? elementWidth = 320 : elementWidth = 160 ;
+      (window.innerWidth >= 768) ? elementWidth = 320 : elementWidth = 150 ;
+      console.log(elementWidth);
       item.style.marginRight = Math.ceil(document.body.clientWidth / 2) - elementWidth + 'px';
+      console.log(Math.ceil(document.body.clientWidth / 2) - elementWidth + 'px');
     }
   }
 
@@ -369,6 +371,7 @@
     }
     modalGalleryCarousel['btnDownload'].href = modalGalleryCarousel['items'][(modalGalleryCarousel['currentItem'])].querySelector('img').src;
     modalGalleryCarousel['imgCounter'].textContent = (+modalGalleryCarousel['items'][modalGalleryCarousel['currentItem']].dataset.id + 1) + '/' + modalGalleryCarousel['items'].length;
+    recalcMargin();
   }
 
   const showModalGallery = (event) => {
