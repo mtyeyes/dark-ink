@@ -246,7 +246,7 @@
       let eventInformation = {x : event.changedTouches[0].screenX, calledFrom : obj};
       carouselCore['swipeInformation'] = eventInformation;
       setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
-    });
+    }, {passive: true});
 
     obj['container'].addEventListener('mouseup', function(event) {
       if (carouselCore['swipeInformation']) {
@@ -258,7 +258,7 @@
       if (carouselCore['swipeInformation']) {
         carouselCore.swipe(event.changedTouches[0].screenX);
       }
-    });
+    }, {passive: true});
 
     carouselCore.adjust(obj);
   };
@@ -340,9 +340,7 @@
     for (let item of modalGalleryCarousel['items']) {
       let elementWidth
       (window.innerWidth >= 768) ? elementWidth = 320 : elementWidth = 150 ;
-      console.log(elementWidth);
       item.style.marginRight = Math.ceil(document.body.clientWidth / 2) - elementWidth + 'px';
-      console.log(Math.ceil(document.body.clientWidth / 2) - elementWidth + 'px');
     }
   }
 
@@ -375,7 +373,10 @@
   }
 
   const showModalGallery = (event) => {
-    if (!modalGalleryCarousel['filled']) {fillModalGallery(event)}
+    if (!modalGalleryCarousel['filled']) {
+      fillModalGallery(event);
+      setEventListeners();
+    }
     slideToSelected(event.currentTarget);
     document.querySelector('.modal-gallery').classList.add('modal-gallery--show');
   }
@@ -392,68 +393,70 @@
     }
   }
 
+  const setEventListeners = () => {
+    modalGalleryCarousel['btnClose'].addEventListener('click', function(event) {
+      document.querySelector('.modal-gallery').classList.remove('modal-gallery--show');
+    });
+
+    modalGalleryCarousel['btnCollapse'].addEventListener('click', function(event) {
+      document.querySelector('.modal-gallery__thumbnails-wrapper').classList.toggle('modal-gallery__thumbnails-wrapper--hide');
+    })
+
+    modalGalleryCarousel['container'].addEventListener('dragstart', function(event) {
+      event.preventDefault();
+    });
+
+    if (modalGalleryCarousel['btnLeft']) {
+      modalGalleryCarousel['btnLeft'].addEventListener('click', function(event) {
+        carouselCore.slide(modalGalleryCarousel, 'left');
+        synchronizeModalCarousel();
+      })
+      modalGalleryCarousel['btnRight'].addEventListener('click', function(event) {
+        carouselCore.slide(modalGalleryCarousel, 'right');
+        synchronizeModalCarousel();
+      })
+    }
+
+    modalGalleryCarousel['section'].addEventListener('wheel', function(event) {
+      carouselCore.scrollHandler(event, modalGalleryCarousel);
+      synchronizeModalCarousel();
+    }, {passive: false});
+
+    modalGalleryCarousel['container'].addEventListener('mousedown', function(event) {
+      let eventInformation = {x : event.screenX, calledFrom : modalGalleryCarousel};
+      carouselCore['swipeInformation'] = eventInformation;
+      setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
+    });
+
+    modalGalleryCarousel['container'].addEventListener('touchstart', function(event) {
+      let eventInformation = {x : event.changedTouches[0].screenX, calledFrom : modalGalleryCarousel};
+      carouselCore['swipeInformation'] = eventInformation;
+      setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
+    }, {passive: true});
+
+    modalGalleryCarousel['container'].addEventListener('mouseup', function(event) {
+      if (carouselCore['swipeInformation']) {
+        carouselCore.swipe(event.screenX);
+        synchronizeModalCarousel();
+      }
+    });
+
+    modalGalleryCarousel['container'].addEventListener('touchend', function(event) {
+      if (carouselCore['swipeInformation']) {
+        carouselCore.swipe(event.changedTouches[0].screenX);
+        synchronizeModalCarousel();
+      }
+    }, {passive: true});
+
+    window.addEventListener('resize', function(event) {
+        carouselCore.adjust(modalGalleryCarousel);
+        recalcMargin();
+    });
+  }
+
   for (let item of galleryCarousel['items']) {
     item.addEventListener('click', function(event) {
       showModalGallery(event);
     });
   };
-
-  modalGalleryCarousel['btnClose'].addEventListener('click', function(event) {
-    document.querySelector('.modal-gallery').classList.remove('modal-gallery--show');
-  });
-
-  modalGalleryCarousel['btnCollapse'].addEventListener('click', function(event) {
-    document.querySelector('.modal-gallery__thumbnails-wrapper').classList.toggle('modal-gallery__thumbnails-wrapper--hide');
-  })
-
-  modalGalleryCarousel['container'].addEventListener('dragstart', function(event) {
-    event.preventDefault();
-  });
-
-  if (modalGalleryCarousel['btnLeft']) {
-    modalGalleryCarousel['btnLeft'].addEventListener('click', function(event) {
-      carouselCore.slide(modalGalleryCarousel, 'left');
-      synchronizeModalCarousel();
-    })
-    modalGalleryCarousel['btnRight'].addEventListener('click', function(event) {
-      carouselCore.slide(modalGalleryCarousel, 'right');
-      synchronizeModalCarousel();
-    })
-  }
-
-  modalGalleryCarousel['section'].addEventListener('wheel', function(event) {
-    carouselCore.scrollHandler(event, modalGalleryCarousel);
-    synchronizeModalCarousel();
-  }, {passive: false});
-
-  modalGalleryCarousel['container'].addEventListener('mousedown', function(event) {
-    let eventInformation = {x : event.screenX, calledFrom : modalGalleryCarousel};
-    carouselCore['swipeInformation'] = eventInformation;
-    setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
-  });
-
-  modalGalleryCarousel['container'].addEventListener('touchstart', function(event) {
-    let eventInformation = {x : event.changedTouches[0].screenX, calledFrom : modalGalleryCarousel};
-    carouselCore['swipeInformation'] = eventInformation;
-    setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
-  });
-
-  modalGalleryCarousel['container'].addEventListener('mouseup', function(event) {
-    if (carouselCore['swipeInformation']) {
-      carouselCore.swipe(event.screenX);
-      synchronizeModalCarousel();
-    }
-  });
-
-  modalGalleryCarousel['container'].addEventListener('touchend', function(event) {
-    if (carouselCore['swipeInformation']) {
-      carouselCore.swipe(event.changedTouches[0].screenX);
-      synchronizeModalCarousel();
-    }
-  });
-
-  window.addEventListener('resize', function(event) {
-      carouselCore.adjust(modalGalleryCarousel);
-      recalcMargin();
-  });
 })();

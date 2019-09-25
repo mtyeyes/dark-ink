@@ -81,7 +81,6 @@ gulp.task("script", function() {
 
 gulp.task("nonstrict", function() {
   return gulp.src(["source/js/non-strict/*.js"])
-    .pipe(concat("non-strict-script.js"))
     .pipe(terser())
     .pipe(gulp.dest("build/js/"));
 });

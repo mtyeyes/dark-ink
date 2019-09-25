@@ -9,8 +9,8 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="shortcut icon" href="./favicon.ico" />
     <link href="css/style.css" rel="stylesheet">
-    <link rel="preload" href="fonts/lato-v16-latin-regular.woff2" as="font" type="font/woff2">
-    <link rel="preload" href="fonts/montserrat-v14-latin-700.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="fonts/lato-v16-latin-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/montserrat-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   </head>
   <body class="page">
     <header class="header">
@@ -347,7 +347,7 @@
     <section class="modal-gallery">
       <div class="modal-gallery__top-wrapper">
         <p class="modal-gallery__image-counter">2/5<span class="visually-hidden"> image</span></p>
-        <a class="modal-gallery__btn modal-gallery__btn--download" download><span class="visually-hidden">Download image</span></a>
+        <a class="modal-gallery__btn modal-gallery__btn--download" href="#" download><span class="visually-hidden">Download image</span></a>
         <button class="modal-gallery__btn modal-gallery__btn--close"><span class="visually-hidden">Close gallery</span></button>
       </div>
       <div class="modal-gallery__middle-wrapper">
@@ -371,7 +371,6 @@
 
   <script src="js/script.js" type="module"></script>
   <script nomodule src="js/script.es5.js" async></script>
-  <script src="js/non-strict-script.js" async defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
