@@ -17,7 +17,9 @@
 
 .staff__see-all-btn {
   display: block;
+  width: 122px;
   margin: 15px auto;
+  text-decoration: none;
 }
 
 .staff__carousel {
@@ -226,6 +228,7 @@
 
   .staff__see-all-btn {
     margin: 20px 0 10px auto;
+    width: auto;
     letter-spacing: 2px;
     padding: 16px 20px 14px 20px;
   }

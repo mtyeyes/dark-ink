@@ -62,7 +62,10 @@
 }
 
 .introduction__btn {
+  display: block;
+  width: 95px;
   margin: 45px 0 0 70px;
+  text-decoration: none;
 }
 
 .introduction__wrap--bottom {
@@ -185,7 +188,7 @@
   }
 
   .introduction__btn {
-    margin: 20px 0 0 0;
+    margin: 38px 0 0 0;
   }
 
   .introduction__wrap--bottom {
@@ -248,7 +251,7 @@
   }
 
   .introduction__btn {
-    margin: 20px 14px 0 16px;
+    margin: 38px 14px 0 16px;
   }
 
   .introduction__wrap--middle {
