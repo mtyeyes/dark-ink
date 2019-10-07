@@ -17,8 +17,9 @@
     },
     adjust : function (block) {
       let itemWidth;
+      let marginBetweenItems = +window.getComputedStyle(block['items'][0])['margin-right'].replace('px', '');
       if (block['resizeToFill']) {
-        itemWidth = document.body.clientWidth / block.itemsVisible();
+        itemWidth = (document.body.clientWidth - (marginBetweenItems * (block.itemsVisible() - 1))) / block.itemsVisible();
         for (let item of block['items']) {
           item.style.width = itemWidth + 'px';
           item.style.height = itemWidth * 0.59 + 'px';
@@ -26,7 +27,6 @@
       } else {
         itemWidth = block['items'][0].clientWidth;
       }
-      let marginBetweenItems = +window.getComputedStyle(block['items'][0])['margin-right'].replace('px', '');
       block['stepWidth'] = itemWidth + marginBetweenItems;
       if (block['resizeToFill']) {block['list'].style.width = ((itemWidth + marginBetweenItems) * block['items'].length - marginBetweenItems) + 'px';}
       block['list'].style.transform = 'translateX(' + block['currentItem'] * block['stepWidth'] * -1 + 'px)';
@@ -118,7 +118,7 @@
     },
     swipe : function (newPointerCoordinatesX) {
       let block = this.swipeInformation.calledFrom;
-      if (!block || !block['swipe']) {return}
+      if (!block) {return}
       let pointerPath = newPointerCoordinatesX - this.swipeInformation.x;
       this.swipeInformation = {};
       if (Math.abs(pointerPath) < 60) {return}
@@ -136,7 +136,6 @@
     'currentItem' : 0,
     'stopAtEdge' : true,
     'resizeToFill' : false,
-    'swipe' : 'horizontal',
     itemsVisible : function() {
       if (window.innerWidth >= 992) {
         return 3;
@@ -163,7 +162,6 @@
     'currentItem' : 0,
     'stopAtEdge' : true,
     'resizeToFill' : false,
-    'swipe' : 'horizontal',
     itemsVisible : function() {
       if (window.innerWidth >= 768) {
         return 2;
@@ -187,7 +185,6 @@
     'currentItem' : 0,
     'stopAtEdge' : false,
     'resizeToFill' : true,
-    'swipe' : 'horizontal',
     itemsVisible : function() {
       if (window.innerWidth >= 700) {
         return 3;
@@ -239,29 +236,31 @@
     obj['container'].addEventListener('mousedown', function(event) {
       let eventInformation = {x : event.screenX, calledFrom : obj};
       carouselCore['swipeInformation'] = eventInformation;
-      setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
+      carouselCore.longPress = setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
     });
 
     obj['container'].addEventListener('touchstart', function(event) {
       let eventInformation = {x : event.changedTouches[0].screenX, calledFrom : obj};
       carouselCore['swipeInformation'] = eventInformation;
-      setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
-    }, {passive: true});
-
-    obj['container'].addEventListener('mouseup', function(event) {
-      if (carouselCore['swipeInformation']) {
-        carouselCore.swipe(event.screenX);
-      }
-    });
-
-    obj['container'].addEventListener('touchend', function(event) {
-      if (carouselCore['swipeInformation']) {
-        carouselCore.swipe(event.changedTouches[0].screenX);
-      }
+      carouselCore.longPress = setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
     }, {passive: true});
 
     carouselCore.adjust(obj);
   };
+
+  document.addEventListener('mouseup', function(event) {
+    if (carouselCore['swipeInformation']) {
+      carouselCore.swipe(event.screenX);
+      clearTimeout(carouselCore.longPress);
+    }
+  });
+
+  document.addEventListener('touchend', function(event) {
+    if (carouselCore['swipeInformation']) {
+      carouselCore.swipe(event.changedTouches[0].screenX);
+      clearTimeout(carouselCore.longPress);
+    }
+  }, {passive: true});
 
   //---------------------------------------------Modal Galery--------------------------------------------
   //-----------------------------------------------------------------------------------------------------
@@ -280,7 +279,6 @@
     'currentItem' : 0,
     'stopAtEdge' : false,
     'resizeToFill' : false,
-    'swipe' : 'horizontal',
     itemsVisible : function() {
       return 1;
     },
@@ -425,26 +423,28 @@
     modalGalleryCarousel['container'].addEventListener('mousedown', function(event) {
       let eventInformation = {x : event.screenX, calledFrom : modalGalleryCarousel};
       carouselCore['swipeInformation'] = eventInformation;
-      setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
+      carouselCore.longPress = setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
     });
 
     modalGalleryCarousel['container'].addEventListener('touchstart', function(event) {
       let eventInformation = {x : event.changedTouches[0].screenX, calledFrom : modalGalleryCarousel};
       carouselCore['swipeInformation'] = eventInformation;
-      setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
+      carouselCore.longPress = setTimeout(function() {carouselCore[ 'swipeInformation'] = {} }, 2500);
     }, {passive: true});
 
-    modalGalleryCarousel['container'].addEventListener('mouseup', function(event) {
+    document.addEventListener('mouseup', function(event) {
       if (carouselCore['swipeInformation']) {
         carouselCore.swipe(event.screenX);
         synchronizeModalCarousel();
+        clearTimeout(carouselCore.longPress);
       }
     });
 
-    modalGalleryCarousel['container'].addEventListener('touchend', function(event) {
+    document.addEventListener('touchend', function(event) {
       if (carouselCore['swipeInformation']) {
         carouselCore.swipe(event.changedTouches[0].screenX);
         synchronizeModalCarousel();
+        clearTimeout(carouselCore.longPress);
       }
     }, {passive: true});
 
