@@ -284,5 +284,6 @@ function initMap() {
   var apiKeyEncodedParts = ['XNEbnRKOTVNZXUzVFB', 'uZFVHeFgteHJRSHpJbUJR', 'QUl6YVN5RDhhL']
   apiKey.src = 'https://maps.googleapis.com/maps/api/js?key=' + window.atob((apiKeyEncodedParts[2] + apiKeyEncodedParts[0] + apiKeyEncodedParts[1])) + '&callback=initMap';
   apiKey.type = "text/javascript";
+  apiKey.setAttribute("defer", "defer");
   document.body.appendChild(apiKey);
 })();
