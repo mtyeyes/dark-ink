@@ -298,6 +298,7 @@
       imgWrapper.className = 'modal-gallery__item';
       imgWrapper.dataset.id = galleryCarousel['items'][i].dataset.id;
       let img = document.createElement('img');
+      img.setAttribute('loading', 'lazy');
       img.className = 'modal-gallery__uncompressed-image';
       img.src = galeryImg.src.replace('[.][a-zA-Z]{3,4}', '-uc.jpg').replace('@2x', '');
       img.alt = galeryImg.alt;
