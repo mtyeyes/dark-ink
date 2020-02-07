@@ -56,7 +56,7 @@
   transition: 500ms;
 }
 
-.gallery__container {
+.gallery__carousel {
   position: relative;
   margin-top: 32px;
   width: 100%;
@@ -164,7 +164,7 @@
     height: 152px;
   }
 
-  .gallery__container {
+  .gallery__carousel {
     margin-top: 22px;
   }
 }
@@ -200,7 +200,7 @@
     background-color: $red;
   }
 
-  .gallery__container {
+  .gallery__carousel {
     z-index: 1;
   }
 
@@ -240,7 +240,7 @@
     line-height: 1.25;
   }
 
-  .gallery__container {
+  .gallery__carousel {
     margin-top: 7px;
   }
 
