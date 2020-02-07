@@ -218,7 +218,7 @@
   }
 
   class ModalCarousel extends Carousel {
-    constructor(obj, parentCarousel, event) {
+    constructor(obj, parentCarousel) {
       super(obj);
       this.parentCarousel = parentCarousel;
       this.filled = false;
