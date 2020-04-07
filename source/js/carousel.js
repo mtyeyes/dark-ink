@@ -58,13 +58,13 @@
         if (context['swipeInformation']) {
           context.swipe(event.screenX);
           clearTimeout(context.longPress);
-        }
+        };
       });
       document.addEventListener('touchend', function(event) {
         if (context['swipeInformation']) {
           context.swipe(event.changedTouches[0].screenX);
           clearTimeout(context.longPress);
-        }
+        };
       }, {passive: true});
       if (this['btnPrevious']) {this.addEventListenersToNextPreviousBtns(this)};
       if (this['modalCarouselProperties']) {this.addEventListenersToExpandCarousel(this)};
@@ -80,7 +80,9 @@
     addEventListenersToExpandCarousel (context) {
       this['items'].forEach(item => {
         item.addEventListener('click', function(event) {
-          context.showModalCarousel(event);
+          if (context['swipeInformation']) {
+            context.showModalCarousel(event);
+          }
         });
       });
     };
@@ -205,9 +207,9 @@
     };
     swipe (newPointerCoordinatesX) {
       let pointerPath = newPointerCoordinatesX - this.swipeInformation.x;
-      this.swipeInformation = null;
       if (Math.abs(pointerPath) < 60) {return}
       (pointerPath < 0) ? this.slide('right') : this.slide('left');
+      this.swipeInformation = null;
     };
     showModalCarousel (event) {
       if(!this['childCarousel']) {
