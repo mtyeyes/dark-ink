@@ -82,6 +82,7 @@
         item.addEventListener('click', function(event) {
           if (context['swipeInformation']) {
             context.showModalCarousel(event);
+            context.swipeInformation = null;
           }
         });
       });
@@ -275,7 +276,7 @@
       }, {passive: true});
       window.addEventListener('resize', function(event) {
           context.adjust();
-          recalcMargin();
+          context.recalcMargin();
       });
       if (this['btnPrevious']) {this.addEventListenersToNextPreviousBtns(this)};
     };
