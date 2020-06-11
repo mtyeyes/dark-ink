@@ -3,7 +3,7 @@ const sass = require("gulp-sass");
 const plumber = require("gulp-plumber");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
-const testServer = require("browser-sync").create();
+const browserSync = require("browser-sync").create();
 const csso = require("gulp-csso");
 const imagemin = require("gulp-imagemin");
 const htmlmin = require("gulp-htmlmin");
@@ -30,7 +30,7 @@ const css = () => {
     ]))
     .pipe(csso())
     .pipe(gulp.dest("build/css"))
-    .pipe(testServer.stream());
+    .pipe(browserSync.stream());
 };
 
 exports.css = css;
@@ -56,7 +56,7 @@ const convert = () => {
 exports.convert = convert;
 
 const server = () => {
-  testServer.init({
+  browserSync.init({
     server: "build/",
     notify: false,
     open: true,
@@ -75,8 +75,8 @@ const watch = () => {
 
 exports.watch = watch;
 
-const refresh = () => {
-  server.reload();
+const refresh = (done) => {
+  browserSync.reload();
   done();
 };
 

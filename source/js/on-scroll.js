@@ -24,11 +24,15 @@
   };
 
   const scrollToTop = () => {
-    let position = document.body.scrollTop || document.documentElement.scrollTop;
-    if (position) {
-        window.scrollBy(0, - Math.max(10, 200));
-        window.requestAnimationFrame(scrollToTop);
-    }
+    if (window.scrollTo) {
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      const position = document.body.scrollTop || document.documentElement.scrollTop;
+      if (position) {
+          window.scrollBy(0, -200);
+          window.requestAnimationFrame(scrollToTop);
+      };
+    };
   };
 
   scrollToTopBtn.removeAttribute("href");
