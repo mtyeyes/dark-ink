@@ -1,7 +1,7 @@
 ( function() {
   const header = document.querySelector('.header');
-  const scrollToTopBtn = document.querySelector('.scroll-to-top')
-  const imageContainer = document.querySelector('.about__pictures-container')
+  const scrollToTopBtn = document.querySelector('.scroll-to-top');
+  const imageContainer = document.querySelector('.about__pictures-container');
   const imageLeft = document.querySelector('.about__img--left');
   const imageRight = document.querySelector('.about__img--right');
 
@@ -11,7 +11,7 @@
     let parallaxStart = 1.8 * imageContainer.clientHeight;
     let scrollDistance = imageContainer.getBoundingClientRect()['y'] || imageContainer.getBoundingClientRect()['top'];
     let progress = (parallaxStart - scrollDistance) / parallaxSpread;
-    let yOffset
+    let yOffset;
     if (progress < 0) {
       yOffset = 0;
     } else if (progress > 1) {
@@ -29,19 +29,19 @@
     } else {
       const position = document.body.scrollTop || document.documentElement.scrollTop;
       if (position) {
-          window.scrollBy(0, -200);
-          window.requestAnimationFrame(scrollToTop);
-      };
-    };
+        window.scrollBy(0, -200);
+        window.requestAnimationFrame(scrollToTop);
+      }
+    }
   };
 
-  scrollToTopBtn.removeAttribute("href");
+  scrollToTopBtn.removeAttribute('href');
   scrollToTopBtn.addEventListener('click', function(event) {
     event.preventDefault;
     scrollToTop();
   });
 
-  document.addEventListener('scroll', function(event) {
+  document.addEventListener('scroll', function() {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       header.classList.add('header--sticky');
       scrollToTopBtn.classList.add('scroll-to-top--show');

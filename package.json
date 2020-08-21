@@ -1,10 +1,10 @@
 {
   "private": true,
   "devDependencies": {
-    "@babel/polyfill": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "autoprefixer": "^9.8.0",
-    "browser-sync": "^2.26.7",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "autoprefixer": "^9.8.6",
+    "browser-sync": "^2.26.12",
     "core-js": "^3.6.5",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
@@ -13,13 +13,14 @@
     "gulp-csso": "^4.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^7.1.0",
+    "gulp-mode": "^1.0.2",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
-    "stylelint": "^13.6.0"
+    "stylelint": "^13.6.1"
   },
   "scripts": {
     "editorconfig": "editorconfig-cli",
@@ -46,7 +47,42 @@
     "source/img/**/*.svg",
     "source/sass/**/*.{sass,scss}"
   ],
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 11
+    },
+    "ignorePatterns": [
+      "gulpfile.js"
+    ],
+    "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always",
+        {
+          "omitLastInOneLineBlock": true
+        }
+      ]
+    }
+  },
   "dependencies": {
+    "eslint": "^7.7.0",
     "gulp-terser": "^1.2.0",
     "loaderjs": "^1.0.0",
     "regenerator-runtime": "^0.13.3"

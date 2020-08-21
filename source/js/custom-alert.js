@@ -10,6 +10,6 @@ const customAlert = {
   }
 };
 
-document.querySelector('.modal-alert__close-btn').addEventListener('click', function(event) {
+document.querySelector('.modal-alert__close-btn').addEventListener('click', function() {
   customAlert.hide();
 });

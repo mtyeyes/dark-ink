@@ -5,5 +5,5 @@
     for (let element of arrayOfElements) {
       element.classList.remove(className);
     }
-  };
+  }
 }());

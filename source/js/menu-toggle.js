@@ -16,5 +16,5 @@
       currentBtn.classList.toggle('site-nav__sub-menu-toggle--toggled');
       currentMenu.classList.toggle('site-nav__sub-menu--open');
     });
-  };
+  }
 })();

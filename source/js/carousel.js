@@ -16,20 +16,20 @@
         this.radioBtns = 0;
         this.radioBtnsContainer = document.querySelector(`.${this.name}__form`);
         this.refreshRadioBtns = () => {this.radioBtns = document.querySelectorAll(`.${this.name}__radio-btn`)};
-        if (this['items'].length > this.itemsVisible()) {this.adjustRadioBtns(this)};
-      };
+        if (this['items'].length > this.itemsVisible()) {this.adjustRadioBtns(this)}
+      }
       if(obj['hasNextPreviousBtns']) {
         this.btnPrevious = document.querySelector(`.${this.name}__btn--previous`);
         this.btnNext = document.querySelector(`.${this.name}__btn--next`);
-      };
+      }
       if(obj['modalCarouselProperties']) {
         this.modalCarouselProperties = obj['modalCarouselProperties'];
-      };
+      }
       if (Object.getPrototypeOf(this) === Carousel.prototype) {
         this.addEventListeners(this);
       }
       this.adjust();
-    };
+    }
     addEventListeners (context) {
       this['container'].addEventListener('dragstart', function(event) {
         event.preventDefault();
@@ -47,36 +47,36 @@
         context['swipeInformation'] = eventInformation;
         context.longPress = setTimeout(function() {context['swipeInformation'] = null }, 1000);
       }, {passive: true});
-      window.addEventListener('resize', function(event) {
+      window.addEventListener('resize', function() {
         if (context['currentItem'] + context.itemsVisible() >= context['items'].length) {
           context['currentItem'] = context['items'].length - context.itemsVisible();
-        };
-        if (typeof context['radioBtns'] !== 'undefined' && context['items'].length > context.itemsVisible()) {context.adjustRadioBtns(context)};
+        }
+        if (typeof context['radioBtns'] !== 'undefined' && context['items'].length > context.itemsVisible()) {context.adjustRadioBtns(context)}
         context.adjust();
       });
       document.addEventListener('mouseup', function(event) {
         if (context['swipeInformation']) {
           context.swipe(event.screenX);
           clearTimeout(context.longPress);
-        };
+        }
       });
       document.addEventListener('touchend', function(event) {
         if (context['swipeInformation']) {
           context.swipe(event.changedTouches[0].screenX);
           clearTimeout(context.longPress);
-        };
+        }
       }, {passive: true});
-      if (this['btnPrevious']) {this.addEventListenersToNextPreviousBtns(this)};
-      if (this['modalCarouselProperties']) {this.addEventListenersToExpandCarousel(this)};
-    };
+      if (this['btnPrevious']) {this.addEventListenersToNextPreviousBtns(this)}
+      if (this['modalCarouselProperties']) {this.addEventListenersToExpandCarousel(this)}
+    }
     addEventListenersToNextPreviousBtns (context) {
-      this['btnPrevious'].addEventListener('click', function(event) {
+      this['btnPrevious'].addEventListener('click', function() {
         context.slide('left');
       });
-      this['btnNext'].addEventListener('click', function(event) {
+      this['btnNext'].addEventListener('click', function() {
         context.slide('right');
       });
-    };
+    }
     addEventListenersToExpandCarousel (context) {
       this['items'].forEach(item => {
         item.addEventListener('click', function(event) {
@@ -86,14 +86,14 @@
           }
         });
       });
-    };
+    }
     getScrollDirection (event) {
       if (event.deltaY < 0) {
         return 'right';
       } else {
         return 'left';
       }
-    };
+    }
     scrollHandler (event) {
       if (this['items'].length > this.itemsVisible()) {
         event.stopPropagation();
@@ -101,9 +101,9 @@
         window.event.preventDefault();
         this.slide(direction);
       }
-    };
+    }
     adjust () {
-      if (this['items'].length === 0) {return};
+      if (this['items'].length === 0) {return}
       let itemWidth;
       let marginBetweenItems = +window.getComputedStyle(this['items'][0])['margin-right'].replace('px', '');
       if (this['resizeToFill']) {
@@ -116,13 +116,13 @@
         itemWidth = this['items'][0].clientWidth;
       }
       this['stepWidth'] = itemWidth + marginBetweenItems;
-      if (this['resizeToFill']) {this['list'].style.width = ((itemWidth + marginBetweenItems) * this['items'].length - marginBetweenItems) + 'px';}
+      if (this['resizeToFill']) {this['list'].style.width = ((itemWidth + marginBetweenItems) * this['items'].length - marginBetweenItems) + 'px'}
       this['list'].style.transform = 'translateX(' + this['currentItem'] * this['stepWidth'] * -1 + 'px)';
-      if (this['radioBtns']) {this.whichRadioBtnChecked()};
-    };
+      if (this['radioBtns']) {this.whichRadioBtnChecked()}
+    }
     adjustRadioBtns (context) {
       let numberOfBtns = Math.ceil(this['items'].length / this.itemsVisible());
-      if (numberOfBtns === this['radioBtns'].length) {return} else {this['radioBtnsContainer'].innerHTML = ''};
+      if (numberOfBtns === this['radioBtns'].length) {return} else {this['radioBtnsContainer'].innerHTML = ''}
       let btn = document.createElement('input');
       btn.type = 'radio';
       btn.name = this['name'] + '-carousel';
@@ -137,37 +137,38 @@
         newLabel.innerHTML = '<span class="visually-hidden">Button №' + (i + 1) + '<span>';
         this['radioBtnsContainer'].appendChild(newBtn);
         this['radioBtnsContainer'].appendChild(newLabel);
-      };
+      }
       this.refreshRadioBtns();
-      let labelsArr = document.querySelectorAll('.' + this['name'] + '__label')
+      let labelsArr = document.querySelectorAll('.' + this['name'] + '__label');
       for (let i = 0; i < labelsArr.length; i++) {
-        this['radioBtns'][i].oninput = (event) => {
+        this['radioBtns'][i].oninput = () => {
           let position;
           (i !== labelsArr.length - 1) ? position = i * context.itemsVisible() : position = context['items'].length - context.itemsVisible();
           context.slideTo(position);
           context['radioBtns'][i].checked = true;
         };
-      };
-    };
-    whichRadioBtnChecked () {
-      let itemsVisible = this.itemsVisible()
-      for (let i = 0; i < this['radioBtns'].length; i++) {
-        if (this['currentItem'] <= itemsVisible * (i + 1) - 1 && this['currentItem'] > itemsVisible * i - 1) {this['radioBtns'][i].checked = true};
       }
-      if (this['currentItem'] + 1 >=  itemsVisible * Math.floor(this['items'].length / itemsVisible)) {this['radioBtns'][(this['radioBtns'].length - 1)].checked = true};
-    };
+    }
+    whichRadioBtnChecked () {
+      let itemsVisible = this.itemsVisible();
+      for (let i = 0; i < this['radioBtns'].length; i++) {
+        if (this['currentItem'] <= itemsVisible * (i + 1) - 1 && this['currentItem'] > itemsVisible * i - 1) {this['radioBtns'][i].checked = true}
+      }
+      if (this['currentItem'] + 1 >=  itemsVisible * Math.floor(this['items'].length / itemsVisible)) {this['radioBtns'][(this['radioBtns'].length - 1)].checked = true}
+    }
     freezeUntilAnimationend (context) {
       this['freeze'] = true;
       setTimeout(() => context['freeze'] = false, this['animationSpeed'] * 1.1);
-    };
+    }
     slideStoppedAtEdge (direction, context) {
       (direction === 'right') ? this['currentItem']-- : this['currentItem']++;
       this['items'][this.currentItem].classList.add('carousel__current-item');
+      if (this['items'].length <= this.itemsVisible()) {return}
       for (let item of this['items']) {item.classList.add('carousel__at-the-edge--' + direction)}
       setTimeout(() => {
-        for (let item of context['items']) {item.classList.remove('carousel__at-the-edge--' + direction)};
+        for (let item of context['items']) {item.classList.remove('carousel__at-the-edge--' + direction)}
       }, this['animationSpeed']);
-    };
+    }
     slideBeyond (direction, context) {
       for (let item of this['items']) {item.classList.add('carousel__slide--' + direction)}
       if (direction === 'left') {
@@ -178,44 +179,44 @@
         this['currentItem'] = this['items'].length - this.itemsVisible();
       }
       setTimeout(() => {
-        for (let item of context['items']) {item.classList.remove('carousel__slide--' + direction)};
+        for (let item of context['items']) {item.classList.remove('carousel__slide--' + direction)}
       }, this['animationSpeed']);
       this.refreshItems();
       this['items'][this['currentItem']].classList.add('carousel__current-item');
       this.adjust();
-    };
+    }
     slide (direction) {
-      if (this['freeze']) { return };
+      if (this['freeze']) { return }
       this.freezeUntilAnimationend(this);
       this['items'][this['currentItem']].classList.remove('carousel__current-item');
-      if (direction === 'right') {this['currentItem']++;} else {this['currentItem']--;}
+      if (direction === 'right') {this['currentItem']++} else {this['currentItem']--}
       const context = this;
       if (this['currentItem'] < 0) {
         (this['stopAtEdge']) ? this.slideStoppedAtEdge(direction, context) : this.slideBeyond(direction, context);
-        return
+        return;
       } else if (this['currentItem'] > this['items'].length - this.itemsVisible()) {
         (this['stopAtEdge']) ? this.slideStoppedAtEdge(direction, context) : this.slideBeyond(direction, context);
         return;
       }
       this['items'][this['currentItem']].classList.add('carousel__current-item');
       this.adjust();
-      if (this['radioBtns']) {this.whichRadioBtnChecked()};
+      if (this['radioBtns']) {this.whichRadioBtnChecked()}
       this['list'].style.transform = 'translateX(' + this['currentItem'] * this['stepWidth'] * -1 + 'px)';
-    };
+    }
     slideTo (position) {
       this['currentItem'] = position;
       this.adjust();
-    };
+    }
     swipe (newPointerCoordinatesX) {
       let pointerPath = newPointerCoordinatesX - this.swipeInformation.x;
       if (Math.abs(pointerPath) < 60) {return}
       (pointerPath < 0) ? this.slide('right') : this.slide('left');
       this.swipeInformation = null;
-    };
+    }
     showModalCarousel (event) {
       if(!this['childCarousel']) {
         this['childCarousel'] = new ModalCarousel(this['modalCarouselProperties'], this);
-      };
+      }
       this['childCarousel'].showModalCarousel(event);
     }
   }
@@ -235,14 +236,14 @@
       this.refreshThumbnails = () => {this.thumbnails = this.thumbnailsList.querySelectorAll(`.${this.name}__thumbnail`)};
       this.fillModalGallery();
       this.addEventListeners(this);
-    };
+    }
     addEventListeners (context) {
-      this['btnClose'].addEventListener('click', function(event) {
+      this['btnClose'].addEventListener('click', function() {
         context['modalContainer'].classList.remove('modal-gallery--show');
       });
-      this['btnCollapse'].addEventListener('click', function(event) {
+      this['btnCollapse'].addEventListener('click', function() {
         context['thumbnailsWrapper'].classList.toggle('modal-gallery__thumbnails-wrapper--hide');
-      })
+      });
       this['container'].addEventListener('dragstart', function(event) {
         event.preventDefault();
       });
@@ -253,12 +254,12 @@
       this['container'].addEventListener('mousedown', function(event) {
         let eventInformation = {x : event.screenX};
         context['swipeInformation'] = eventInformation;
-        context.longPress = setTimeout(function() {carouselCore[ 'swipeInformation'] = null }, 2500);
+        context.longPress = setTimeout(function() {context.carouselCore[ 'swipeInformation'] = null }, 2500);
       });
       this['container'].addEventListener('touchstart', function(event) {
         let eventInformation = {x : event.changedTouches[0].screenX};
         context['swipeInformation'] = eventInformation;
-        context.longPress = setTimeout(function() {carouselCore[ 'swipeInformation'] = null }, 2500);
+        context.longPress = setTimeout(function() {context.carouselCore[ 'swipeInformation'] = null }, 2500);
       }, {passive: true});
       document.addEventListener('mouseup', function(event) {
         if (context['swipeInformation']) {
@@ -274,24 +275,24 @@
           clearTimeout(context['longPress']);
         }
       }, {passive: true});
-      window.addEventListener('resize', function(event) {
-          context.adjust();
-          context.recalcMargin();
+      window.addEventListener('resize', function() {
+        context.adjust();
+        context.recalcMargin();
       });
-      if (this['btnPrevious']) {this.addEventListenersToNextPreviousBtns(this)};
-    };
+      if (this['btnPrevious']) {this.addEventListenersToNextPreviousBtns(this)}
+    }
     addEventListenersToNextPreviousBtns (context) {
-      this['btnPrevious'].addEventListener('click', function(event) {
+      this['btnPrevious'].addEventListener('click', function() {
         context.slide('left');
         context.synchronizeModalCarousel();
       });
-      this['btnNext'].addEventListener('click', function(event) {
+      this['btnNext'].addEventListener('click', function() {
         context.slide('right');
         context.synchronizeModalCarousel();
       });
-    };
+    }
     copyImgsToCarousel (parentCarousel) {
-      var list = document.createDocumentFragment()
+      var list = document.createDocumentFragment();
       for (let i = 0; i < parentCarousel['items'].length; i++) {
         let galeryImg = parentCarousel['items'][i].querySelector('img');
         let imgWrapper = document.createElement('li');
@@ -310,9 +311,9 @@
       }
       this['list'].appendChild(list);
       this.refreshItems();
-    };
+    }
     copyImgsToThumbnails (parentCarousel, context) {
-      var list = document.createDocumentFragment()
+      var list = document.createDocumentFragment();
       for (let i = 0; i < parentCarousel['items'].length; i++) {
         let elementToCopy;
         for (let item of parentCarousel['items']) {
@@ -334,19 +335,19 @@
         item.addEventListener('click', function(event) {
           context.chooseImgOnThumbnail(event.currentTarget);
         });
-      };
-    };
+      }
+    }
     recalcMargin () {
       for (let item of this['items']) {
-        let elementWidth
+        let elementWidth;
         (window.innerWidth >= 768) ? elementWidth = 320 : elementWidth = 150 ;
         item.style.marginRight = Math.ceil(document.body.clientWidth / 2) - elementWidth + 'px';
       }
-    };
+    }
     fillModalGallery () {
       this.copyImgsToCarousel(this['parentCarousel']);
       this.copyImgsToThumbnails(this['parentCarousel'], this);
-    };
+    }
     slideToSelected (element, context) {
       for (let i = 0; i < this['items'].length; i++) {
         if (element.dataset.id === this['items'][i].dataset.id) {
@@ -355,7 +356,7 @@
       }
       this.synchronizeModalCarousel();
       window.requestAnimationFrame(function(){context.adjust()});
-    };
+    }
     synchronizeModalCarousel () {
       for (let i = 0; i < this['items'].length; i++) {
         this['thumbnails'][i].classList.remove('modal-gallery__thumbnail--selected');
@@ -366,11 +367,11 @@
       this['btnDownload'].href = this['items'][(this['currentItem'])].querySelector('img').src;
       this['imgCounter'].textContent = (+this['items'][this['currentItem']].dataset.id + 1) + '/' + this['items'].length;
       this.recalcMargin();
-    };
+    }
     showModalCarousel (event) {
       this.slideToSelected(event.currentTarget, this);
       this['modalContainer'].classList.add(`${this['name']}--show`);
-    };
+    }
     chooseImgOnThumbnail (element) {
       if (element.classList.contains('modal-gallery__thumbnail--selected')) {return}
       let selectedImg = element.dataset.id;
@@ -378,11 +379,11 @@
         if (selectedImg === this['items'][i].dataset.id) {
           this.slideTo(i);
           this.synchronizeModalCarousel();
-          return
+          return;
         }
       }
-    };
-  };
+    }
+  }
 
   const staffCarousel = {
     'name': 'staff',
