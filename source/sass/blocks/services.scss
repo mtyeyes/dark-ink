@@ -94,6 +94,12 @@
   width: 290px;
 }
 
+@media (min-width: 450px) and (max-width: 767px) {
+  .services__container {
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: $tablet-width) {
   .services__container {
     width: $tablet-container-width;
