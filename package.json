@@ -7,6 +7,7 @@
     "browser-sync": "^2.26.12",
     "core-js": "^3.6.5",
     "del": "^5.1.0",
+    "gh-pages": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-concat": "^2.6.1",
@@ -27,13 +28,15 @@
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
     "build": "gulp build",
     "start": "gulp",
-    "images": "gulp images"
+    "images": "gulp images",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     "last 2 versions",
     "IE 11",
     "Firefox ESR"
   ],
+  "homepage": "mtyeyes.github.io/dark-ink",
   "babel": {
     "presets": [
       "@babel/env"
