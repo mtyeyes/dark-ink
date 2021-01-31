@@ -373,7 +373,8 @@ template {
     left: calc(50% - 466px);
     width: 1px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.06); }
+    background-color: rgba(255, 255, 255, 0.06);
+    z-index: -1; }
   .page::after {
     content: "";
     position: absolute;
@@ -381,7 +382,8 @@ template {
     right: calc(50% - 65px);
     width: 1px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.06); } }
+    background-color: rgba(255, 255, 255, 0.06);
+    z-index: -1; } }
 
 @media (min-width: 1200px) {
   .page::before {
@@ -1186,9 +1188,6 @@ template {
   .about__link {
     top: 325px; } }
 
-.services {
-  content-visibility: auto; }
-
 .services__container {
   margin: 190px 0 0 0;
   width: 290px;
@@ -1452,8 +1451,7 @@ template {
 
 .staff {
   margin-top: 85px;
-  margin-bottom: 35px;
-  content-visibility: auto; }
+  margin-bottom: 35px; }
 
 .staff__heading {
   position: relative;
@@ -1794,8 +1792,7 @@ template {
 
 .reviews {
   margin: 35px auto;
-  width: 91vw;
-  content-visibility: auto; }
+  width: 91vw; }
 
 .reviews__heading {
   position: relative;
@@ -2004,8 +2001,7 @@ template {
 .gallery {
   margin-top: 48px;
   margin-bottom: 53px;
-  width: 100%;
-  content-visibility: auto; }
+  width: 100%; }
 
 .gallery__top-wrapper {
   width: 290px;
@@ -2227,8 +2223,7 @@ template {
 
 .form {
   margin-top: 90px;
-  margin-bottom: 55px;
-  content-visibility: auto; }
+  margin-bottom: 55px; }
 
 .form__heading {
   position: relative;
@@ -2374,7 +2369,7 @@ template {
 
 @media (min-width: 1200px) {
   .form {
-    margin-top: 170px;
+    margin-top: 225px;
     width: 1180px; }
   .form::before {
     top: -185px;
@@ -2388,7 +2383,7 @@ template {
     width: 470px;
     margin: 0 5px 0 auto; }
   .form__heading {
-    margin-top: 225px;
+    margin-top: 0;
     font-size: 48px;
     line-height: 1.25; }
   .form__text {
@@ -2406,8 +2401,7 @@ template {
   background-position: center;
   background-image: url("../img/map-bg-mobile.jpg");
   background-size: auto 100%;
-  z-index: 1;
-  content-visibility: auto; }
+  z-index: 1; }
 
 .map__interactive {
   width: 100%;
@@ -2445,8 +2439,7 @@ template {
     background-image: url("../img/map-bg-desktop@2x.jpg"); } }
 
 .footer {
-  padding: 45px 0;
-  content-visibility: auto; }
+  padding: 45px 0; }
 
 .footer__logo {
   display: block;

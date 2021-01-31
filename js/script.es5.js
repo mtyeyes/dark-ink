@@ -7772,7 +7772,7 @@ document.querySelector('.modal-alert__close-btn').addEventListener('click', func
     if(getMapOffsetToViewport() < getViewportHeight() * 2) {
       loadMap();
       window.removeEventListener('scroll', checkIfMapShouldBeLoaded);
-      window.addEventListener('resize', checkIfMapShouldBeLoaded);
+      window.removeEventListener('resize', checkIfMapShouldBeLoaded);
     }
   };
 
