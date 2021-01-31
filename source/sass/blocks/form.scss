@@ -1,7 +1,6 @@
 .form {
   margin-top: 90px;
   margin-bottom: 55px;
-  content-visibility: auto;
 }
 
 .form__heading {
@@ -180,7 +179,7 @@
 
 @media (min-width: $desktop-width) {
   .form {
-    margin-top: 170px;
+    margin-top: 225px;
     width: $desktop-container-width;
   }
 
@@ -202,7 +201,7 @@
   }
 
   .form__heading {
-    margin-top: 225px;
+    margin-top: 0;
     font-size: 48px;
     line-height: 1.25;
   }
