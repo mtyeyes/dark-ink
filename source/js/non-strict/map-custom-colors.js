@@ -282,7 +282,7 @@ function initMap() {
 (function() {
   var apiKey = document.createElement("script");
   var apiKeyEncodedParts = ['9Cy34_', 'Tqe-oq0', 'PWubln4g', 'mre2rlMQm', 'AIzaSyBkE'];
-  apiKey.src = 'https://maps.googleapis.com/maps/api/js?key=' + window.atob((apiKeyEncodedParts[4] + apiKeyEncodedParts[1] + apiKeyEncodedParts[0] + apiKeyEncodedParts[3] + apiKeyEncodedParts[2])) + '&callback=initMap';
+  apiKey.src = 'https://maps.googleapis.com/maps/api/js?key=' + (apiKeyEncodedParts[4] + apiKeyEncodedParts[1] + apiKeyEncodedParts[0] + apiKeyEncodedParts[3] + apiKeyEncodedParts[2]) + '&callback=initMap';
   apiKey.type = "text/javascript";
   apiKey.setAttribute("defer", "defer");
   document.body.appendChild(apiKey);
