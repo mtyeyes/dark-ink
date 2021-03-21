@@ -22,7 +22,7 @@
 
 .site-nav__menu-icon::before,
 .site-nav__menu-icon::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 24px;
   height: 4px;
@@ -60,7 +60,7 @@
   width: 270px;
   padding: 0;
   list-style: none;
-  font-family: "loto", "roboto", sans-serif;
+  font-family: 'loto', 'roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 34px;
@@ -139,7 +139,7 @@
 }
 
 .site-nav__sub-menu-toggle::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 23px;
   right: 20px;
@@ -271,13 +271,18 @@
   }
 
   .site-nav__list::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 40px;
-    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.3) 5%,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0)
+    );
     transition: 0.5s;
   }
 

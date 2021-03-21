@@ -150,13 +150,13 @@
   }
 
   .services__container::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 10px;
     right: -30px;
     height: 590px;
     width: 361px;
-    background-image: url("../img/services-bg.png");
+    background-image: url('../img/services-bg.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
   }
@@ -175,7 +175,7 @@
   }
 
   .services__heading::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     left: -29px;
@@ -233,7 +233,7 @@
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     .services__container::after {
-      background-image: url("../img/services-bg@2x.png");
+      background-image: url('../img/services-bg@2x.png');
     }
   }
 }

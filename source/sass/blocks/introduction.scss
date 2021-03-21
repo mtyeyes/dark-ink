@@ -1,5 +1,6 @@
 .introduction {
-  background-image: url("../img/introduction-bg-person.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));
+  background-image: url('../img/introduction-bg-person.png'),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));
   background-repeat: no-repeat, repeat;
   background-position: 70% bottom, top left;
   background-size: 258px, auto;
@@ -71,7 +72,7 @@
 .introduction__wrap--bottom {
   font-size: 14px;
   font-weight: 400;
-  font-family: "loto", "roboto", sans-serif;
+  font-family: 'loto', 'roboto', sans-serif;
 }
 
 .introduction__text-accent {
@@ -101,7 +102,8 @@
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
   .introduction {
-    background-image: url("../img/introduction-bg-person@2x.png"), linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));
+    background-image: url('../img/introduction-bg-person@2x.png'),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.2));
   }
 }
 

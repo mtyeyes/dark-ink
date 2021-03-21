@@ -194,19 +194,34 @@
 .staff__label {
   width: 25px;
   height: 16px;
-  background: linear-gradient(rgba(0, 0, 0, 0) 40%, #9b9b9b 40%, #9b9b9b 55%, rgba(0, 0, 0, 0) 55%);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 40%,
+    #9b9b9b 40%,
+    #9b9b9b 55%,
+    rgba(0, 0, 0, 0) 55%
+  );
   cursor: pointer;
 }
 
 .staff__label:hover,
 .staff__label:focus {
-  background: linear-gradient(rgba(0, 0, 0, 0) 40%, #ffffff 40%, #ffffff 55%, rgba(0, 0, 0, 0) 55%);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 40%,
+    #ffffff 40%,
+    #ffffff 55%,
+    rgba(0, 0, 0, 0) 55%
+  );
 }
 
 .staff__radio-btn:first-of-type:checked ~ .staff__label:first-of-type,
 .staff__radio-btn:nth-of-type(2):checked ~ .staff__label:nth-of-type(2),
 .staff__radio-btn:last-of-type:checked ~ .staff__label:last-of-type {
-  background: linear-gradient(rgba(0, 0, 0, 0) 40%, #f13f3f 40%, #f13f3f 55%, rgba(0, 0, 0, 0) 55%);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 40%,
+    #f13f3f 40%,
+    #f13f3f 55%,
+    rgba(0, 0, 0, 0) 55%
+  );
 }
 
 @media (min-width: $tablet-width) {
@@ -237,7 +252,6 @@
     width: 690px;
     margin: 28px auto 40px;
   }
-
 
   .staff__photo {
     width: 330px;
@@ -270,7 +284,7 @@
   }
 
   .staff__heading::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     left: -31px;
@@ -290,7 +304,7 @@
   }
 
   .staff__top-wrapper::before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 3px;
     right: 310px;
@@ -304,7 +318,6 @@
     margin: 30px auto;
     z-index: 1;
   }
-
 
   .staff__person {
     width: 290px;

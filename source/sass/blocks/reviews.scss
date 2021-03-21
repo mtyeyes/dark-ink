@@ -38,7 +38,7 @@
 }
 
 .reviews__text::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 66px;
   height: 49px;
@@ -66,7 +66,7 @@
 }
 
 .reviews__client-name::after {
-  content: "Client";
+  content: 'Client';
   bottom: 12px;
   left: 0;
   position: absolute;
@@ -94,7 +94,7 @@
 }
 
 .reviews__label::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 11px;
   width: 11px;
@@ -116,7 +116,8 @@
   background-color: $dim;
 }
 
-.reviews__radio-btn:first-of-type:checked ~ .reviews__label:first-of-type::after,
+.reviews__radio-btn:first-of-type:checked
+  ~ .reviews__label:first-of-type::after,
 .reviews__radio-btn:last-of-type:checked ~ .reviews__label:last-of-type::after {
   background-color: $red;
 }
@@ -161,7 +162,7 @@
   }
 
   .reviews__heading::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     left: -31px;
@@ -205,7 +206,7 @@
   }
 
   .reviews__heading::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     left: -31px;

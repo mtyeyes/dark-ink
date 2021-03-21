@@ -1,19 +1,19 @@
 .page {
   position: relative;
   background-color: #1f1f1f;
-  background-image: url("../img/main-bg.jpg");
+  background-image: url('../img/main-bg.jpg');
 }
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
   .page {
     background-size: 152px 140px;
-    background-image: url("../img/main-bg@2x.jpg");
+    background-image: url('../img/main-bg@2x.jpg');
   }
 }
 
 @media (min-width: $pre-desktop-width) {
   .page::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: calc(50% - 466px);
@@ -24,7 +24,7 @@
   }
 
   .page::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: calc(50% - 65px);

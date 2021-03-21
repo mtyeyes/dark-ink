@@ -1,4 +1,4 @@
-( function() {
+(function () {
   const header = document.querySelector('.header');
   const scrollToTopBtn = document.querySelector('.scroll-to-top');
   const imageContainer = document.querySelector('.about__pictures-container');
@@ -9,7 +9,9 @@
     let maxOffset = 15;
     let parallaxSpread = 2 * imageContainer.clientHeight;
     let parallaxStart = 1.8 * imageContainer.clientHeight;
-    let scrollDistance = imageContainer.getBoundingClientRect()['y'] || imageContainer.getBoundingClientRect()['top'];
+    let scrollDistance =
+      imageContainer.getBoundingClientRect()['y'] ||
+      imageContainer.getBoundingClientRect()['top'];
     let progress = (parallaxStart - scrollDistance) / parallaxSpread;
     let yOffset;
     if (progress < 0) {
@@ -19,7 +21,7 @@
     } else {
       yOffset = progress * maxOffset;
     }
-    imageLeft.style.transform = 'translateY(' + (yOffset * -1) + '%)';
+    imageLeft.style.transform = 'translateY(' + yOffset * -1 + '%)';
     imageRight.style.transform = 'translateY(' + yOffset + '%)';
   };
 
@@ -27,7 +29,8 @@
     if (window.scrollTo) {
       window.scrollTo({ top, behavior: 'smooth' });
     } else {
-      const position = document.body.scrollTop || document.documentElement.scrollTop;
+      const position =
+        document.body.scrollTop || document.documentElement.scrollTop;
       if (position) {
         window.scrollBy(0, -200);
         window.requestAnimationFrame(scrollToTop);
@@ -36,12 +39,12 @@
   };
 
   scrollToTopBtn.removeAttribute('href');
-  scrollToTopBtn.addEventListener('click', function(event) {
+  scrollToTopBtn.addEventListener('click', function (event) {
     event.preventDefault;
     scrollToTop();
   });
 
-  document.addEventListener('scroll', function() {
+  document.addEventListener('scroll', function () {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       header.classList.add('header--sticky');
       scrollToTopBtn.classList.add('scroll-to-top--show');

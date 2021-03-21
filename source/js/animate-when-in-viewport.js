@@ -1,11 +1,15 @@
-( function() {
-  if ('IntersectionObserver' in window &&
-  'IntersectionObserverEntry' in window &&
-  'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+(function () {
+  if (
+    'IntersectionObserver' in window &&
+    'IntersectionObserverEntry' in window &&
+    'intersectionRatio' in window.IntersectionObserverEntry.prototype
+  ) {
     let animatedElements = document.querySelectorAll('.fade-in-up');
-    let animatedPseudoElements = document.querySelectorAll('.animated-pseudo-element');
+    let animatedPseudoElements = document.querySelectorAll(
+      '.animated-pseudo-element'
+    );
     let observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.intersectionRatio > 0) {
           if (entry.target.classList.contains('hidden-before-animation')) {
             entry.target.classList.remove('hidden-before-animation');
@@ -31,4 +35,4 @@
       observer.observe(animatedPseudoElements[i]);
     }
   }
-}());
+})();

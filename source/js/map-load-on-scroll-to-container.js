@@ -1,4 +1,4 @@
-( function() {
+(function () {
   const loadMap = () => {
     let googleMap = document.createElement('script');
     googleMap.src = 'js/map-custom-colors.js';
@@ -6,10 +6,14 @@
     document.body.appendChild(googleMap);
   };
   const mapContainer = document.querySelector('.map');
-  const getMapOffsetToViewport = () => {return mapContainer.getBoundingClientRect().top};
-  const getViewportHeight = () => {return window.innerHeight};
+  const getMapOffsetToViewport = () => {
+    return mapContainer.getBoundingClientRect().top;
+  };
+  const getViewportHeight = () => {
+    return window.innerHeight;
+  };
   const checkIfMapShouldBeLoaded = () => {
-    if(getMapOffsetToViewport() < getViewportHeight() * 2) {
+    if (getMapOffsetToViewport() < getViewportHeight() * 2) {
       loadMap();
       window.removeEventListener('scroll', checkIfMapShouldBeLoaded);
       window.removeEventListener('resize', checkIfMapShouldBeLoaded);

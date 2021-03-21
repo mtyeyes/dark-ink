@@ -110,13 +110,13 @@
   }
 
   .form::before {
-    content: "";
+    content: '';
     position: absolute;
     top: -7px;
     left: 22px;
     height: 677px;
     width: 450px;
-    background-image: url("../img/form-bg.png");
+    background-image: url('../img/form-bg.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
   }
@@ -130,7 +130,7 @@
   }
 
   .form::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 70px;
     left: 22px;
@@ -149,7 +149,7 @@
   }
 
   .form__heading::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     left: -31px;
@@ -172,7 +172,7 @@
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     .form::before {
-      background-image: url("../img/form-bg@2x.png");
+      background-image: url('../img/form-bg@2x.png');
     }
   }
 }

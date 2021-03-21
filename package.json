@@ -21,11 +21,11 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
+    "prettier": "^2.2.1",
     "stylelint": "^13.6.1"
   },
   "scripts": {
-    "editorconfig": "editorconfig-cli",
-    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
+    "format": "prettier --config .prettierrc \"**/*.+(js|json|css|scss)\" --write",
     "build": "gulp build",
     "start": "gulp",
     "images": "gulp images",

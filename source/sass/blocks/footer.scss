@@ -61,7 +61,7 @@
     justify-content: space-between;
     width: 940px;
     margin: 0 auto;
-    background-image: url("../img/main-bg.jpg");
+    background-image: url('../img/main-bg.jpg');
     z-index: 1;
   }
 
@@ -82,7 +82,7 @@
 
 @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
   .footer {
-    background-image: url("../img/main-bg@2x.jpg");
+    background-image: url('../img/main-bg@2x.jpg');
   }
 }
 
